@@ -359,6 +359,8 @@ if __name__ == "__main__":
 
     def do_info(args):
         content = WhenceLoader(args.whence)
+        print(f"format_version: {content.whence_content['metadata'].format_version}\n"
+              f"firmware_version: {content.whence_content['metadata'].firmware_version}\n")
         for entry in content.list(
                 names=None if args.names is None else args.names.split(","),
                 vendors=None if args.vendors is None else args.vendors.split(","),
