@@ -10,7 +10,6 @@ from pathlib import Path
 import argparse
 import logging
 import shutil
-import os
 import sys
 import yaml
 import yaml.scanner
@@ -40,16 +39,25 @@ class CustomFormatter(logging.Formatter):
         return formatter.format(record)
 
 
-def list_git():
-    with os.popen('git ls-files') as git_files:
-        for line in git_files:
-            yield line.rstrip('\n')
-
-
 def list_dir(directory, relative_directory):
     return set(sorted([file.relative_to(relative_directory).as_posix()
                        for file in Path(directory).rglob('*') if file.is_file()
                        and not file.relative_to(relative_directory).as_posix().startswith(".")]))
+
+
+def relative_to(first: Path, second: Path):
+    # This function is loosely equivalent to pathlib.Path.relative_to with walk_up from Python 3.12
+    # There no some guards and fail checks, and we assume that first and second paths at least in same directory
+    num_common_parts = 0
+    num_second_parts = len(second.parts)
+    for first_part, second_part in zip(first.parts, second.parts):
+        if first_part != second_part:
+            break
+        num_common_parts += 1
+    up_parts = (num_second_parts - num_common_parts) * ("..", )
+
+    path_parts = up_parts + first.parts[num_common_parts:]
+    return Path(*path_parts)
 
 
 class MetadataSchema(Schema):
@@ -79,20 +87,11 @@ class FileSchema(Schema):
     info = fields.String()
     source = fields.List(fields.String())
     version = fields.String()
+    links = fields.List(fields.String())
 
     @post_load
     def make_object(self, data, **kwargs):
         return File(**data)
-
-
-class LinkSchema(Schema):
-    """Link entry schema validator"""
-    name = fields.String(required=True)
-    target = fields.String(required=True)
-
-    @post_load
-    def make_object(self, data, **kwargs):
-        return Link(**data)
 
 
 class EntrySchema(Schema):
@@ -104,7 +103,6 @@ class EntrySchema(Schema):
     license = fields.Nested(LicenseSchema, required=True)
     info = fields.String(required=True)
     files = fields.List(fields.Nested(FileSchema), required=True)
-    links = fields.List(fields.Nested(LinkSchema))
 
     @post_load
     def make_object(self, data, **kwargs):
@@ -118,20 +116,27 @@ class WhenceSchema(Schema):
 
 
 class File:
-    def __init__(self, name, info=None, source=None, version=None):
+    def __init__(self, name, info=None, source=None, version=None, links=None):
         self.name = name
         self.info = info
         self.source = source
         self.version = version
+        self.links = links
 
     def __repr__(self):
         return f"<File(name={self.name}, " \
                f"info={self.info}, " \
                f"source={self.source}, " \
-               f"version={self.version})>"
+               f"version={self.version}, " \
+               f"links={self.links})>"
 
     def __str__(self):
-        return f"  - {self.name}"
+        result = f"  - Name: {self.name}"
+        if self.links is not None:
+            result += f"\n    Links:"
+            for itm in self.links:
+                result += f"\n      - {itm}"
+        return result
 
 
 class Metadata:
@@ -168,20 +173,8 @@ class License:
         return result
 
 
-class Link:
-    def __init__(self, name, target):
-        self.name = name
-        self.target = target
-
-    def __repr__(self):
-        return f"<Link (name={self.name}, target={self.target})>"
-
-    def __str__(self):
-        return f"  - {self.name} -> {self.target}"
-
-
 class Entry:
-    def __init__(self, name, description, category, vendor, license, info, files, links=None):
+    def __init__(self, name, description, category, vendor, license, info, files):
         self.name = name
         self.description = description
         self.category = category
@@ -189,43 +182,34 @@ class Entry:
         self.license = license
         self.info = info
         self.files = files
-        self.links = links
+        self.size = 0
 
     def __repr__(self):
         return f"<Entry (name={self.name}, description={self.description}, " \
-               "category={self.category}, vendor={self.vendor}, license={self.license}, " \
-               "info={self.info}, files={self.files}, links={self.links})>"
+               f"category={self.category}, vendor={self.vendor}, license={self.license}, " \
+               f"info={self.info}, files={self.files})>"
 
     def __str__(self):
-        try:
-            size = sum(Path(itm.name).stat().st_size for itm in self.files)
-        except FileNotFoundError as e:
-            logger.warning(f"Error calculation file size: {e}!")
-            size = 0
-
         return "Entry: {self.name}\n" \
                "Description: {self.description}\n" \
                "Categories:\n{categories}\n" \
                "Vendor: {self.vendor}\n" \
                "License:\n{self.license}\n" \
                "Info:\n{self.info}\n" \
-               "Size: {size:,} bytes\n" \
+               "Size: {self.size:,} bytes\n" \
                "Files:\n{files}\n" \
-               "Links:\n{links}\n" \
                "--------\n" \
             .format(
                 self=self,
-                categories="\n".join("  - {} ".format(itm) for itm in self.category),
+                categories="\n".join(f"  - {itm}" for itm in self.category),
                 files="\n".join(f"{itm}" for itm in self.files),
-                links="\n".join(f"{itm}" for itm in self.links) if self.links is not None else "None",
-                size=size
             )
 
 
 class WhenceLoader:
     def __init__(self, whence_file="WHENCE.yaml"):
-        self.supported_version = "2"
         """Load WHENCE.yaml file and initialize object"""
+        self.supported_version = "3"
         try:
             loaded = yaml.safe_load(Path(whence_file).read_text())
             schema = WhenceSchema()
@@ -245,38 +229,46 @@ class WhenceLoader:
             logger.error(f"Schema of WHENCE-file is incorrect: {e}!")
             sys.exit(1)
 
-    def _install(self, root, source):
+    def _install(self, source: Path, file: Path, destination: Path):
         """Install requested file"""
-        if not Path(source).exists():
+        sourcepath = source / file
+        if not sourcepath.exists():
             logger.error(f"Source file {source} does not exists")
             return
 
-        fullpath = Path(root) / Path(source)
+        fullpath = destination / file
         fullpath.parent.mkdir(mode=0o755, parents=True, exist_ok=True)
-        if fullpath.exists():
+        if fullpath.exists() and fullpath.is_file():
             logger.warning(f"Target file {fullpath} exists, overwriting")
+            fullpath.unlink()
 
-        logger.info(f"Copying {source} to {fullpath}")
-        shutil.copyfile(source, fullpath)
+        if fullpath.is_dir():
+            return
+        logger.info(f"Copying {file} to {fullpath}")
+        try:
+            shutil.copyfile(sourcepath, fullpath)
+        except shutil.SameFileError:
+            pass
 
-    def _install_symlink(self, root, link, target):
+    def _install_symlink(self, destination: Path, source: Path, link: Path):
         """Install requested symlink"""
-        linkpath = Path(root) / Path(link)
+        sourcepath = Path(destination) / Path(source)
+        linkpath = Path(destination) / Path(link)  # Don't resolve it, pathlib will follow symlinks
         parentpath = linkpath.parent
         # Create parentpath early since targetpath may require existing path
         parentpath.mkdir(mode=0o755, parents=True, exist_ok=True)
 
-        targetpath = parentpath / Path(target)
-        if not targetpath.exists():
-            logger.error("Source file {targetpath} does not exists")
+        if not sourcepath.exists():
+            logger.error(f"Source file {sourcepath} does not exists")
             return
 
         if linkpath.exists():
-            logger.warning(f"Target file {linkpath} exists, overwriting")
+            logger.warning(f"Target link {linkpath} exists, overwriting")
             linkpath.unlink()
 
-        logger.info(f"Making link {linkpath} to {target}")
-        linkpath.symlink_to(target)
+        local_file = relative_to(Path(source), Path(link).parent)
+        logger.info(f"Making link {linkpath} to {local_file}")
+        linkpath.symlink_to(local_file)
 
     def check(self):
         """Check WHENCE.yaml content, compare file lists with actual files in repo"""
@@ -289,7 +281,8 @@ class WhenceLoader:
         # Get content (files, sources, licenses)
         entries = self.list()
         # Get all filenames from files section
-        whence_files = set(itm.name for itm in entries for itm in itm.files)
+        # N.B.: Don't include directories ("/" at end of path)
+        whence_files = set(itm.name for itm in entries for itm in itm.files if itm.name[-1] != "/")
         # Append licenses files
         whence_files.update(set(itm.license.name for itm in entries if itm.license.name not in known_licenses))
         # Append source entries from files section (only regular files)
@@ -339,17 +332,16 @@ class WhenceLoader:
                     (categories is None or any(map(lambda each: each in d.category, categories)))
             ), self.whence_content["entries"]))
 
-    def install(self, destination, names=None, vendors=None, categories=None, licenses=None):
+    def install(self, source: Path, destination: Path, names=None, vendors=None, categories=None, licenses=None):
         """Install files from filtered query list"""
         entries = self.list(names, vendors, categories, licenses)
 
         for entry in entries:
             for file in entry.files:
-                self._install(destination, file.name)
-
-            if entry.links is not None:
-                for link in entry.links:
-                    self._install_symlink(destination, link.name, link.target)
+                self._install(source, Path(file.name), destination)
+                if file.links is not None:
+                    for link in file.links:
+                        self._install_symlink(destination, file.name, link)
 
 
 if __name__ == "__main__":
@@ -373,13 +365,25 @@ if __name__ == "__main__":
                 licenses=None if args.licenses is None else args.licenses.split(","),
                 categories=None if args.categories is None else args.categories.split(",")
         ):
+            try:
+                entry.size = sum((args.source / Path(itm.name)).stat().st_size for itm in entry.files)
+            except FileNotFoundError as e:
+                logger.warning(f"Error calculation file size: {e}!")
             print(entry)
         sys.exit(0)
 
     def do_install(args):
         content = WhenceLoader(args.whence)
+        destination = Path(args.destination).resolve()
+        destination.mkdir(exist_ok=True)
+        try:
+            source = Path(args.source).resolve(strict=True)
+        except FileNotFoundError:
+            logger.error(f"{args.source} does not exists!")
+            return
         content.install(
-            args.destination,
+            source,
+            destination,
             names=None if args.names is None else args.names.split(","),
             vendors=None if args.vendors is None else args.vendors.split(","),
             licenses=None if args.licenses is None else args.licenses.split(","),
@@ -443,7 +447,7 @@ if __name__ == "__main__":
         i.add_argument("-l", "--licenses", help="Query filter with licenses (comma separated)")
         i.add_argument("-w", "--whence", help="Specify custom WHENCE.yaml file (default is WHENCE.yaml)",
                        default="WHENCE.yaml")
-    for i in [parser_check, parser_install]:
+    for i in [parser_check, parser_info, parser_install]:
         i.add_argument("-s", "--source", help="Source directory of linux-firmware package (default is current directory",
                        default=".")
 
