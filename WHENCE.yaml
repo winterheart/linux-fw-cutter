@@ -5,7 +5,7 @@
 
 metadata:
   format_version: "3"
-  firmware_version: "20230117"
+  firmware_version: "20230210"
 
 entries:
   - name: BCM-0bb4-0306
@@ -903,30 +903,18 @@ entries:
         version: 15.32.2.9
       - name: iwlwifi-4965-2.ucode
         version: 228.61.2.24
-      - name: iwlwifi-5000-1.ucode
-        version: 5.4.A.11 (aka 5.4.1.16)
-      - name: iwlwifi-5000-2.ucode
-        version: 8.24.2.12
       - name: iwlwifi-5000-5.ucode
         version: 8.83.5.1
       - name: iwlwifi-5150-2.ucode
         version: 8.24.2.2
-      - name: iwlwifi-1000-3.ucode
-        version: 128.50.3.1
       - name: iwlwifi-1000-5.ucode
         version: 39.31.5.1
       - name: iwlwifi-6000-4.ucode
         version: 9.221.4.1
-      - name: iwlwifi-6050-4.ucode
-        version: 9.201.4.1
       - name: iwlwifi-6050-5.ucode
         version: 41.28.5.1
-      - name: iwlwifi-6000g2a-5.ucode
-        version: 17.168.5.3
       - name: iwlwifi-6000g2a-6.ucode
         version: 18.168.6.1
-      - name: iwlwifi-6000g2b-5.ucode
-        version: 17.168.5.1
       - name: iwlwifi-6000g2b-6.ucode
         version: 18.168.6.1
       - name: iwlwifi-135-6.ucode
@@ -945,78 +933,30 @@ entries:
         version: 17.bfb58538.0
       - name: iwlwifi-7265-17.ucode
         version: 17.bfb58538.0
-      - name: iwlwifi-7265D-22.ucode
-        version: 22.391740.0
-      - name: iwlwifi-7265D-27.ucode
-        version: 27.541033.0
       - name: iwlwifi-7265D-29.ucode
         version: 29.f2390aa8.0
-      - name: iwlwifi-3168-22.ucode
-        version: 22.391740.0
-      - name: iwlwifi-3168-27.ucode
-        version: 27.541033.0
       - name: iwlwifi-3168-29.ucode
         version: 29.0bd893f3.0
-      - name: iwlwifi-8000C-22.ucode
-        version: 22.391740.0
-      - name: iwlwifi-8000C-27.ucode
-        version: 27.541033.0
-      - name: iwlwifi-8000C-31.ucode
-        version: 31.560484.0
       - name: iwlwifi-8000C-34.ucode
         version: 34.610288.0
       - name: iwlwifi-8000C-36.ucode
         version: 36.ca7b901d.0
-      - name: iwlwifi-8265-22.ucode
-        version: 22.391740.0
-      - name: iwlwifi-8265-27.ucode
-        version: 27.541033.0
-      - name: iwlwifi-8265-31.ucode
-        version: 31.560484.0
       - name: iwlwifi-8265-34.ucode
         version: 34.610288.0
       - name: iwlwifi-8265-36.ucode
         version: 36.ca7b901d.0
-      - name: iwlwifi-9000-pu-b0-jf-b0-33.ucode
-        version: 33.610294.0
       - name: iwlwifi-9000-pu-b0-jf-b0-34.ucode
         version: 34.ba501b11.0
       - name: iwlwifi-9000-pu-b0-jf-b0-38.ucode
         version: 38.755cfdd8.0
-      - name: iwlwifi-9000-pu-b0-jf-b0-41.ucode
-        version: 41.fc1a7aea.0
-      - name: iwlwifi-9000-pu-b0-jf-b0-43.ucode
-        version: 43.95eb4e97.0
       - name: iwlwifi-9000-pu-b0-jf-b0-46.ucode
         version: 46.ea3728ee.0
-      - name: iwlwifi-9260-th-b0-jf-b0-33.ucode
-        version: 33.610294.0
       - name: iwlwifi-9260-th-b0-jf-b0-34.ucode
         version: 34.ba501b11.0
       - name: iwlwifi-9260-th-b0-jf-b0-38.ucode
         version: 38.755cfdd8.0
-      - name: iwlwifi-9260-th-b0-jf-b0-41.ucode
-        version: 41.fc1a7aea.0
-      - name: iwlwifi-9260-th-b0-jf-b0-43.ucode
-        version: 43.95eb4e97.0
       - name: iwlwifi-9260-th-b0-jf-b0-46.ucode
         version: 46.50fdb42f.0
-      - name: iwlwifi-cc-a0-46.ucode
-        version: 46.3cfab8da.0
-      - name: iwlwifi-cc-a0-48.ucode
-        version: 48.4fa0041f.0
-      - name: iwlwifi-Qu-b0-hr-b0-48.ucode
-        version: 48.4fa0041f.0
-      - name: iwlwifi-Qu-b0-jf-b0-48.ucode
-        version: 48.4fa0041f.0
-      - name: iwlwifi-Qu-c0-hr-b0-48.ucode
-        version: 48.4fa0041f.0
-      - name: iwlwifi-Qu-c0-jf-b0-48.ucode
-        version: 48.4fa0041f.0
-      - name: iwlwifi-QuZ-a0-hr-b0-48.ucode
-        version: 48.4fa0041f.0
-      - name: iwlwifi-QuZ-a0-jf-b0-48.ucode
-        version: 48.4fa0041f.0
       - name: iwlwifi-cc-a0-50.ucode
         version: 50.3e391d3e.0
       - name: iwlwifi-Qu-b0-hr-b0-50.ucode
@@ -1031,34 +971,6 @@ entries:
         version: 50.3e391d3e.0
       - name: iwlwifi-QuZ-a0-jf-b0-50.ucode
         version: 50.3e391d3e.0
-      - name: iwlwifi-cc-a0-53.ucode
-        version: 53.c31ac674.0
-      - name: iwlwifi-Qu-b0-hr-b0-53.ucode
-        version: 53.c31ac674.0
-      - name: iwlwifi-Qu-b0-jf-b0-53.ucode
-        version: 53.c31ac674.0
-      - name: iwlwifi-Qu-c0-hr-b0-53.ucode
-        version: 53.c31ac674.0
-      - name: iwlwifi-Qu-c0-jf-b0-53.ucode
-        version: 53.c31ac674.0
-      - name: iwlwifi-QuZ-a0-hr-b0-53.ucode
-        version: 53.c31ac674.0
-      - name: iwlwifi-QuZ-a0-jf-b0-53.ucode
-        version: 53.c31ac674.0
-      - name: iwlwifi-cc-a0-55.ucode
-        version: 55.d9698065.0
-      - name: iwlwifi-Qu-b0-hr-b0-55.ucode
-        version: 55.d9698065.0
-      - name: iwlwifi-Qu-b0-jf-b0-55.ucode
-        version: 55.d9698065.0
-      - name: iwlwifi-Qu-c0-hr-b0-55.ucode
-        version: 55.d9698065.0
-      - name: iwlwifi-Qu-c0-jf-b0-55.ucode
-        version: 55.d9698065.0
-      - name: iwlwifi-QuZ-a0-hr-b0-55.ucode
-        version: 55.d9698065.0
-      - name: iwlwifi-QuZ-a0-jf-b0-55.ucode
-        version: 55.d9698065.0
       - name: iwlwifi-cc-a0-59.ucode
         version: 59.601f3a66.0
       - name: iwlwifi-Qu-b0-hr-b0-59.ucode
@@ -1073,56 +985,10 @@ entries:
         version: 59.601f3a66.0
       - name: iwlwifi-QuZ-a0-jf-b0-59.ucode
         version: 59.601f3a66.0
-      - name: iwlwifi-so-a0-gf-a0-64.ucode
-        version: 64.97bbee0a.0
-      - name: iwlwifi-so-a0-gf-a0-67.ucode
-        version: 67.8f59b80b.0
-      - name: iwlwifi-so-a0-gf4-a0-67.ucode
-        version: 67.8f59b80b.0
       - name: iwlwifi-so-a0-gf-a0.pnvm
       - name: iwlwifi-so-a0-gf4-a0.pnvm
-      - name: iwlwifi-so-a0-hr-b0-64.ucode
-        version: 64.97bbee0a.0
-      - name: iwlwifi-so-a0-jf-b0-64.ucode
-        version: 64.97bbee0a.0
       - name: iwlwifi-ty-a0-gf-a0-59.ucode
         version: 59.601f3a66.0
-      - name: iwlwifi-cc-a0-62.ucode
-        version: 62.49eeb572.0
-      - name: iwlwifi-Qu-b0-hr-b0-62.ucode
-        version: 62.49eeb572.0
-      - name: iwlwifi-Qu-b0-jf-b0-62.ucode
-        version: 62.49eeb572.0
-      - name: iwlwifi-Qu-c0-hr-b0-62.ucode
-        version: 62.49eeb572.0
-      - name: iwlwifi-Qu-c0-jf-b0-62.ucode
-        version: 62.49eeb572.0
-      - name: iwlwifi-QuZ-a0-hr-b0-62.ucode
-        version: 62.49eeb572.0
-      - name: iwlwifi-QuZ-a0-jf-b0-62.ucode
-        version: 62.49eeb572.0
-      - name: iwlwifi-ty-a0-gf-a0-62.ucode
-        version: 62.49eeb572.0
-      - name: iwlwifi-cc-a0-63.ucode
-        version: 63.c04f3485.0
-      - name: iwlwifi-cc-a0-67.ucode
-        version: 67.8f59b80b.0
-      - name: iwlwifi-Qu-b0-hr-b0-63.ucode
-        version: 63.c04f3485.0
-      - name: iwlwifi-Qu-b0-jf-b0-63.ucode
-        version: 63.c04f3485.0
-      - name: iwlwifi-Qu-c0-hr-b0-63.ucode
-        version: 63.c04f3485.0
-      - name: iwlwifi-Qu-c0-jf-b0-63.ucode
-        version: 63.c04f3485.0
-      - name: iwlwifi-QuZ-a0-hr-b0-63.ucode
-        version: 63.c04f3485.0
-      - name: iwlwifi-QuZ-a0-hr-b0-67.ucode
-        version: 67.8f59b80b.0
-      - name: iwlwifi-QuZ-a0-jf-b0-63.ucode
-        version: 63.c04f3485.0
-      - name: iwlwifi-ty-a0-gf-a0-63.ucode
-        version: 63.c04f3485.0
       - name: iwlwifi-cc-a0-66.ucode
         version: 66.f1c864e0.0
       - name: iwlwifi-Qu-b0-hr-b0-66.ucode
@@ -1139,56 +1005,6 @@ entries:
         version: 66.f1c864e0.0
       - name: iwlwifi-ty-a0-gf-a0-66.ucode
         version: 66.f1c864e0.0
-      - name: iwlwifi-ty-a0-gf-a0-67.ucode
-        version: 67.8f59b80b.0
-      - name: iwlwifi-cc-a0-68.ucode
-        version: 68.01d30b0c.0
-      - name: iwlwifi-Qu-b0-hr-b0-68.ucode
-        version: 68.01d30b0c.0
-      - name: iwlwifi-Qu-b0-jf-b0-68.ucode
-        version: 68.01d30b0c.0
-      - name: iwlwifi-Qu-c0-hr-b0-68.ucode
-        version: 68.01d30b0c.0
-      - name: iwlwifi-Qu-c0-jf-b0-68.ucode
-        version: 68.01d30b0c.0
-      - name: iwlwifi-QuZ-a0-hr-b0-68.ucode
-        version: 68.01d30b0c.0
-      - name: iwlwifi-QuZ-a0-jf-b0-68.ucode
-        version: 68.01d30b0c.0
-      - name: iwlwifi-ty-a0-gf-a0-68.ucode
-        version: 68.01d30b0c.0
-      - name: iwlwifi-so-a0-gf4-a0-68.ucode
-        version: 68.01d30b0c.0
-      - name: iwlwifi-so-a0-gf-a0-68.ucode
-        version: 68.01d30b0c.0
-      - name: iwlwifi-so-a0-hr-b0-68.ucode
-        version: 68.01d30b0c.0
-      - name: iwlwifi-so-a0-jf-b0-68.ucode
-        version: 68.01d30b0c.0
-      - name: iwlwifi-cc-a0-71.ucode
-        version: 71.058653f6.0
-      - name: iwlwifi-Qu-b0-hr-b0-71.ucode
-        version: 71.058653f6.0
-      - name: iwlwifi-Qu-b0-jf-b0-71.ucode
-        version: 71.058653f6.0
-      - name: iwlwifi-Qu-c0-hr-b0-71.ucode
-        version: 71.058653f6.0
-      - name: iwlwifi-Qu-c0-jf-b0-71.ucode
-        version: 71.058653f6.0
-      - name: iwlwifi-QuZ-a0-hr-b0-71.ucode
-        version: 71.058653f6.0
-      - name: iwlwifi-QuZ-a0-jf-b0-71.ucode
-        version: 71.058653f6.0
-      - name: iwlwifi-ty-a0-gf-a0-71.ucode
-        version: 71.058653f6.0
-      - name: iwlwifi-so-a0-gf4-a0-71.ucode
-        version: 71.058653f6.0
-      - name: iwlwifi-so-a0-gf-a0-71.ucode
-        version: 71.058653f6.0
-      - name: iwlwifi-so-a0-hr-b0-71.ucode
-        version: 71.058653f6.0
-      - name: iwlwifi-so-a0-jf-b0-71.ucode
-        version: 71.058653f6.0
       - name: iwlwifi-cc-a0-72.ucode
         version: 72.daa05125.0
       - name: iwlwifi-Qu-b0-hr-b0-72.ucode
@@ -2765,6 +2581,13 @@ entries:
       - name: amdgpu/gc_11_0_0_mes.bin
       - name: amdgpu/gc_11_0_0_pfp.bin
       - name: amdgpu/gc_11_0_0_rlc.bin
+      - name: amdgpu/gc_11_0_1_imu.bin
+      - name: amdgpu/gc_11_0_1_me.bin
+      - name: amdgpu/gc_11_0_1_mec.bin
+      - name: amdgpu/gc_11_0_1_mes.bin
+      - name: amdgpu/gc_11_0_1_mes1.bin
+      - name: amdgpu/gc_11_0_1_pfp.bin
+      - name: amdgpu/gc_11_0_1_rlc.bin
       - name: amdgpu/gc_11_0_2_imu.bin
       - name: amdgpu/gc_11_0_2_me.bin
       - name: amdgpu/gc_11_0_2_mec.bin
@@ -2772,12 +2595,15 @@ entries:
       - name: amdgpu/gc_11_0_2_mes.bin
       - name: amdgpu/gc_11_0_2_pfp.bin
       - name: amdgpu/gc_11_0_2_rlc.bin
+      - name: amdgpu/dcn_3_1_4_dmcub.bin
       - name: amdgpu/dcn_3_1_5_dmcub.bin
       - name: amdgpu/dcn_3_1_6_dmcub.bin
       - name: amdgpu/dcn_3_2_0_dmcub.bin
       - name: amdgpu/dcn_3_2_1_dmcub.bin
       - name: amdgpu/psp_13_0_0_sos.bin
       - name: amdgpu/psp_13_0_0_ta.bin
+      - name: amdgpu/psp_13_0_4_ta.bin
+      - name: amdgpu/psp_13_0_4_toc.bin
       - name: amdgpu/psp_13_0_5_asd.bin
       - name: amdgpu/psp_13_0_5_ta.bin
       - name: amdgpu/psp_13_0_5_toc.bin
@@ -2789,11 +2615,13 @@ entries:
       - name: amdgpu/sdma_5_2_6.bin
       - name: amdgpu/sdma_5_2_7.bin
       - name: amdgpu/sdma_6_0_0.bin
+      - name: amdgpu/sdma_6_0_1.bin
       - name: amdgpu/sdma_6_0_2.bin
       - name: amdgpu/smu_13_0_0.bin
       - name: amdgpu/smu_13_0_7.bin
       - name: amdgpu/vcn_3_1_2.bin
       - name: amdgpu/vcn_4_0_0.bin
+      - name: amdgpu/vcn_4_0_2.bin
       - name: amdgpu/vcn_4_0_4.bin
 
   - name: s2255drv
@@ -3046,7 +2874,6 @@ entries:
       - name: brcm/brcmfmac4330-sdio.bin
       - name: brcm/brcmfmac4334-sdio.bin
       - name: brcm/brcmfmac4335-sdio.bin
-      - name: brcm/brcmfmac4339-sdio.bin
       - name: brcm/brcmfmac43241b0-sdio.bin
       - name: brcm/brcmfmac43241b4-sdio.bin
       - name: brcm/brcmfmac43241b5-sdio.bin
@@ -3056,10 +2883,7 @@ entries:
       - name: brcm/brcmfmac43430a0-sdio.bin
       - name: brcm/brcmfmac4350c2-pcie.bin
       - name: brcm/brcmfmac4350-pcie.bin
-      - name: brcm/brcmfmac4354-sdio.bin
       - name: brcm/brcmfmac43569.bin
-      - name: brcm/brcmfmac4356-pcie.bin
-      - name: brcm/brcmfmac4356-sdio.bin
       - name: brcm/brcmfmac4358-pcie.bin
       - name: brcm/brcmfmac43602-pcie.bin
       - name: brcm/brcmfmac43602-pcie.ap.bin
@@ -4642,7 +4466,7 @@ entries:
       - name: amd-ucode/microcode_amd_fam17h.bin
         version: "2022-04-08"
       - name: amd-ucode/microcode_amd_fam19h.bin
-        version: "2022-09-30"
+        version: "2023-01-31"
       - name: amd-ucode/README
 
   - name: mxu11x0
@@ -5374,6 +5198,8 @@ entries:
         version: DMC API/APB ver 2 release 14 for Alderlake P
       - name: i915/adlp_dmc_ver2_16.bin
         version: DMC API/APB ver 2 release 16 for Alderlake P
+      - name: i915/adlp_dmc.bin
+        version: DMC API/APB ver 2 release 18 for Alderlake P
       - name: i915/adlp_guc_62.0.3.bin
         version: GuC API/APB ver 62.0.3 for Alderlake P
       - name: i915/adlp_guc_69.0.3.bin
@@ -5398,6 +5224,8 @@ entries:
         version: DMC API/APB ver 2 release 8 for DG2
       - name: i915/mtl_dmc_ver2_10.bin
         version: DMC API/APB ver 2 release 10 for Meteorlake
+      - name: i915/mtl_dmc.bin
+        version: DMC API/APB ver 2 release 11 for Meteorlake
 
   - name: nouveau
     description: NVIDIA GPU driver
@@ -6177,9 +6005,9 @@ entries:
     info: No info
     files:
       - name: mediatek/WIFI_MT7961_patch_mcu_1_2_hdr.bin
-        version: "20221227150910a"
+        version: "20230117170855a"
       - name: mediatek/WIFI_RAM_CODE_MT7961_1.bin
-        version: "20221227150954"
+        version: "20230117170942"
 
   - name: mt7921
     description: MediaTek MT7921 bluetooth chipset
@@ -6192,7 +6020,7 @@ entries:
     info: No info
     files:
       - name: mediatek/BT_RAM_CODE_MT7961_1_2_hdr.bin
-        version: "20221227151301"
+        version: "20230117171152"
 
   - name: mt7922
     description: MediaTek MT7922 Wireless MACs
@@ -6976,6 +6804,8 @@ entries:
           - cirrus/cs35l41-dsp1-spk-cali-10431e02.wmfw
           - cirrus/cs35l41-dsp1-spk-prot-10431f12.wmfw
           - cirrus/cs35l41-dsp1-spk-cali-10431f12.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-10431e12.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-10431e12.wmfw
       - name: cirrus/cs35l41-dsp1-spk-cali-103c8971.bin
         links:
           - cirrus/cs35l41-dsp1-spk-cali-103c898e.bin
@@ -6995,7 +6825,13 @@ entries:
           - cirrus/cs35l41-dsp1-spk-cali-103c8991.bin
           - cirrus/cs35l41-dsp1-spk-cali-103c8992.bin
       - name: cirrus/cs35l41-dsp1-spk-prot-103c8973.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-103c8994.bin
+          - cirrus/cs35l41-dsp1-spk-prot-103c8995.bin
       - name: cirrus/cs35l41-dsp1-spk-cali-103c8973.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-cali-103c8994.bin
+          - cirrus/cs35l41-dsp1-spk-cali-103c8995.bin
       - name: cirrus/cs35l41-dsp1-spk-prot-103c8975-r0.bin
       - name: cirrus/cs35l41-dsp1-spk-cali-103c8975-r0.bin
       - name: cirrus/cs35l41-dsp1-spk-prot-103c8975-l0.bin
@@ -7100,6 +6936,14 @@ entries:
       - name: cirrus/cs35l41-dsp1-spk-prot-10431f12-spkid0-r0.bin
       - name: cirrus/cs35l41-dsp1-spk-prot-10431f12-spkid1-l0.bin
       - name: cirrus/cs35l41-dsp1-spk-prot-10431f12-spkid1-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431e12-spkid0-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431e12-spkid0-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431e12-spkid1-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431e12-spkid1-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431e12-spkid0-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431e12-spkid0-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431e12-spkid1-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431e12-spkid1-r0.bin
 
   - name: mtk-sof
     description: MediaTek Sound Open Firmware driver
