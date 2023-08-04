@@ -5,7 +5,7 @@
 
 metadata:
   format_version: "3"
-  firmware_version: "20230310"
+  firmware_version: "20230404"
 
 entries:
   - name: BCM-0bb4-0306
@@ -950,13 +950,13 @@ entries:
       - name: iwlwifi-9000-pu-b0-jf-b0-38.ucode
         version: 38.755cfdd8.0
       - name: iwlwifi-9000-pu-b0-jf-b0-46.ucode
-        version: 46.ea3728ee.0
+        version: 46.ff18e32a.0
       - name: iwlwifi-9260-th-b0-jf-b0-34.ucode
         version: 34.ba501b11.0
       - name: iwlwifi-9260-th-b0-jf-b0-38.ucode
         version: 38.755cfdd8.0
       - name: iwlwifi-9260-th-b0-jf-b0-46.ucode
-        version: 46.50fdb42f.0
+        version: 46.ff18e32a.0
       - name: iwlwifi-cc-a0-50.ucode
         version: 50.3e391d3e.0
       - name: iwlwifi-Qu-b0-hr-b0-50.ucode
@@ -1022,9 +1022,9 @@ entries:
       - name: iwlwifi-ty-a0-gf-a0-72.ucode
         version: 72.a764baac.0
       - name: iwlwifi-so-a0-gf4-a0-72.ucode
-        version: 72.daa05125.0
+        version: 72.a764baac.0
       - name: iwlwifi-so-a0-gf-a0-72.ucode
-        version: 72.daa05125.0
+        version: 72.a764baac.0
       - name: iwlwifi-so-a0-hr-b0-72.ucode
         version: 72.daa05125.0
       - name: iwlwifi-so-a0-jf-b0-72.ucode
@@ -1070,50 +1070,58 @@ entries:
       - name: iwlwifi-ty-a0-gf-a0-74.ucode
         version: 74.fe17486e.0
       - name: iwlwifi-so-a0-gf4-a0-74.ucode
-        version: 74.a5e9588b.0
+        version: 74.fe17486e.0
       - name: iwlwifi-so-a0-gf-a0-74.ucode
-        version: 74.a5e9588b.0
+        version: 74.fe17486e.0
       - name: iwlwifi-so-a0-hr-b0-74.ucode
         version: 74.a5e9588b.0
       - name: iwlwifi-so-a0-jf-b0-74.ucode
         version: 74.a5e9588b.0
       - name: iwlwifi-ty-a0-gf-a0.pnvm
       - name: iwlwifi-cc-a0-77.ucode
-        version: 74.2dda880d.0
+        version: 74.206b0184.0
       - name: iwlwifi-Qu-b0-hr-b0-77.ucode
-        version: 74.2dda880d.0
+        version: 74.206b0184.0
       - name: iwlwifi-Qu-b0-jf-b0-77.ucode
-        version: 74.2dda880d.0
+        version: 74.206b0184.0
       - name: iwlwifi-Qu-c0-hr-b0-77.ucode
-        version: 74.2dda880d.0
+        version: 74.206b0184.0
       - name: iwlwifi-Qu-c0-jf-b0-77.ucode
-        version: 74.2dda880d.0
+        version: 74.206b0184.0
       - name: iwlwifi-QuZ-a0-hr-b0-77.ucode
-        version: 74.f92b5fed.0
+        version: 74.206b0184.0
       - name: iwlwifi-QuZ-a0-jf-b0-77.ucode
-        version: 74.2dda880d.0
+        version: 74.206b0184.0
       - name: iwlwifi-ty-a0-gf-a0-77.ucode
         version: 74.f92b5fed.0
       - name: iwlwifi-ty-a0-gf-a0-78.ucode
         version: 75.3bfdc55f.0
       - name: iwlwifi-ty-a0-gf-a0-79.ucode
         version: 76.27f1c37b.0
+      - name: iwlwifi-ty-a0-gf-a0-81.ucode
+        version: 78.31fc9ae6.0
       - name: iwlwifi-so-a0-gf4-a0-77.ucode
         version: 74.f92b5fed.0
       - name: iwlwifi-so-a0-gf4-a0-78.ucode
         version: 75.3bfdc55f.0
       - name: iwlwifi-so-a0-gf4-a0-79.ucode
         version: 76.27f1c37b.0
+      - name: iwlwifi-so-a0-gf4-a0-81.ucode
+        version: 78.31fc9ae6.0
       - name: iwlwifi-so-a0-gf-a0-77.ucode
         version: 74.f92b5fed.0
       - name: iwlwifi-so-a0-gf-a0-78.ucode
         version: 74.3bfdc55f.0
       - name: iwlwifi-so-a0-gf-a0-79.ucode
         version: 75.27f1c37b.0
+      - name: iwlwifi-so-a0-gf-a0-81.ucode
+        version: 78.31fc9ae6.0
       - name: iwlwifi-so-a0-hr-b0-77.ucode
         version: 74.f92b5fed.0
       - name: iwlwifi-so-a0-hr-b0-79.ucode
         version: 75.27f1c37b.0
+      - name: iwlwifi-so-a0-hr-b0-81.ucode
+        version: 78.31fc9ae6.0
       - name: iwlwifi-so-a0-jf-b0-77.ucode
         version: 74.f92b5fed.0
 
@@ -2595,6 +2603,13 @@ entries:
       - name: amdgpu/gc_11_0_2_mes.bin
       - name: amdgpu/gc_11_0_2_pfp.bin
       - name: amdgpu/gc_11_0_2_rlc.bin
+      - name: amdgpu/gc_11_0_4_imu.bin
+      - name: amdgpu/gc_11_0_4_me.bin
+      - name: amdgpu/gc_11_0_4_mec.bin
+      - name: amdgpu/gc_11_0_4_mes.bin
+      - name: amdgpu/gc_11_0_4_mes1.bin
+      - name: amdgpu/gc_11_0_4_pfp.bin
+      - name: amdgpu/gc_11_0_4_rlc.bin
       - name: amdgpu/dcn_3_1_4_dmcub.bin
       - name: amdgpu/dcn_3_1_5_dmcub.bin
       - name: amdgpu/dcn_3_1_6_dmcub.bin
@@ -2612,6 +2627,8 @@ entries:
       - name: amdgpu/psp_13_0_8_asd.bin
       - name: amdgpu/psp_13_0_8_ta.bin
       - name: amdgpu/psp_13_0_8_toc.bin
+      - name: amdgpu/psp_13_0_11_ta.bin
+      - name: amdgpu/psp_13_0_11_toc.bin
       - name: amdgpu/sdma_5_2_6.bin
       - name: amdgpu/sdma_5_2_7.bin
       - name: amdgpu/sdma_6_0_0.bin
@@ -3504,6 +3521,7 @@ entries:
     files:
       - name: rtw89/rtw8852a_fw.bin
       - name: rtw89/rtw8852b_fw.bin
+      - name: rtw89/rtw8852b_fw-1.bin
       - name: rtw89/rtw8852c_fw.bin
 
   - name: rtl8xxxu
@@ -4262,6 +4280,10 @@ entries:
         version: BT_Quasar_REL53263
       - name: intel/ibt-19-0-1.ddc
         version: BT_Quasar_REL53263
+      - name: intel/ibt-19-0-3.sfi
+        version: BT_Quasar_REL53263
+      - name: intel/ibt-19-0-3.ddc
+        version: BT_Quasar_REL53263
       - name: intel/ibt-19-0-4.sfi
         version: BT_HarrisonPeak_REL53263
       - name: intel/ibt-19-0-4.ddc
@@ -4291,41 +4313,41 @@ entries:
       - name: intel/ibt-19-240-4.ddc
         version: BT_HarrisonPeak_REL53263
       - name: intel/ibt-0041-0041.sfi
-        version: BT_TyphoonPeak_REL56683
+        version: BT_TyphoonPeak_REL59564
       - name: intel/ibt-0041-0041.ddc
-        version: BT_TyphoonPeak_REL56683
+        version: BT_TyphoonPeak_REL59564
       - name: intel/ibt-0040-0041.sfi
-        version: BT_Solar_GfP2_REL56683
+        version: BT_Solar_GfP2_REL59564
       - name: intel/ibt-0040-0041.ddc
-        version: BT_Solar_GfP2_REL56683
+        version: BT_Solar_GfP2_REL59564
       - name: intel/ibt-1040-0041.sfi
-        version: BT_SolarF_GfP2_REL56683
+        version: BT_SolarF_GfP2_REL59564
       - name: intel/ibt-1040-0041.ddc
-        version: BT_SolarF_GfP2_REL56683
+        version: BT_SolarF_GfP2_REL59564
       - name: intel/ibt-0040-1020.sfi
-        version: BT_Solar_JfP1_REL52159
+        version: BT_Solar_JfP1_REL59564
       - name: intel/ibt-0040-1020.ddc
-        version: BT_Solar_JfP1_REL52159
+        version: BT_Solar_JfP1_REL59564
       - name: intel/ibt-1040-1020.sfi
-        version: BT_SolarF_JfP1_REL52159
+        version: BT_SolarF_JfP1_REL59564
       - name: intel/ibt-1040-1020.ddc
-        version: BT_SolarF_JfP1_REL52159
+        version: BT_SolarF_JfP1_REL59564
       - name: intel/ibt-0040-2120.sfi
         version: BT_Solar_JfP2_REL52159
       - name: intel/ibt-0040-2120.ddc
         version: BT_Solar_JfP2_REL52159
       - name: intel/ibt-1040-2120.sfi
-        version: BT_SolarF_JfP2_REL52159
+        version: BT_SolarF_JfP2_REL59564
       - name: intel/ibt-1040-2120.ddc
-        version: BT_SolarF_JfP2_REL52159
+        version: BT_SolarF_JfP2_REL59564
       - name: intel/ibt-0040-4150.sfi
-        version: BT_Solar_HrP2_REL56683
+        version: BT_Solar_JnP2_REL59564
       - name: intel/ibt-0040-4150.ddc
-        version: BT_Solar_HrP2_REL56683
+        version: BT_Solar_JnP2_REL59564
       - name: intel/ibt-1040-4150.sfi
-        version: BT_SolarF_HrP2_REL56683
+        version: BT_SolarF_JnP2_REL59564
       - name: intel/ibt-1040-4150.ddc
-        version: BT_SolarF_HrP2_REL56683
+        version: BT_SolarF_JnP2_REL59564
 
   - name: btrtl
     description: Realtek Bluetooth USB driver
@@ -5257,7 +5279,7 @@ entries:
       - name: i915/adlp_dmc_ver2_16.bin
         version: DMC API/APB ver 2 release 16 for Alderlake P
       - name: i915/adlp_dmc.bin
-        version: DMC API/APB ver 2 release 18 for Alderlake P
+        version: DMC API/APB ver 2 release 19 for Alderlake P
       - name: i915/adlp_guc_62.0.3.bin
         version: GuC API/APB ver 62.0.3 for Alderlake P
       - name: i915/adlp_guc_69.0.3.bin
@@ -5283,7 +5305,7 @@ entries:
       - name: i915/mtl_dmc_ver2_10.bin
         version: DMC API/APB ver 2 release 10 for Meteorlake
       - name: i915/mtl_dmc.bin
-        version: DMC API/APB ver 2 release 11 for Meteorlake
+        version: DMC API/APB ver 2 release 12 for Meteorlake
 
   - name: nouveau
     description: NVIDIA GPU driver
@@ -5864,9 +5886,9 @@ entries:
       - name: mediatek/mt8186/scp.img
         version: v0.0.9
       - name: mediatek/mt8192/scp.img
-        version: v2.0.8548
+        version: v2.0.20536
       - name: mediatek/mt8195/scp.img
-        version: v2.0.11956
+        version: v2.0.20536
 
   - name: btmtk
     description: MediaTek Bluetooth Driver
@@ -6091,9 +6113,9 @@ entries:
     info: No info
     files:
       - name: mediatek/WIFI_MT7922_patch_mcu_1_1_hdr.bin
-        version: "20221227123154a"
+        version: "20230328143229a"
       - name: mediatek/WIFI_RAM_CODE_MT7922_1.bin
-        version: "20221227123243"
+        version: "20230328143313"
 
   - name: mt7922
     description: MediaTek MT7922 bluetooth chipset
@@ -6106,7 +6128,7 @@ entries:
     info: No info
     files:
       - name: mediatek/BT_RAM_CODE_MT7922_1_1_hdr.bin
-        version: "20221227123429"
+        version: "20230328143444"
 
   - name: nfp
     description: Netronome Flow Processor
@@ -6797,9 +6819,9 @@ entries:
     info: No info
     files:
       - name: amphion/vpu/vpu_fw_imx8_dec.bin
-        version: 1.7.4
+        version: 1.8.8
       - name: amphion/vpu/vpu_fw_imx8_enc.bin
-        version: 1.3.1
+        version: 1.3.4
 
   - name: cs35l41_hda
     description: CS35l41 ALSA HDA audio driver
@@ -7040,3 +7062,26 @@ entries:
     files:
       - name: nxp/sr150_fw.bin
         version: 35.00.03
+
+  - name: btnxpuart
+    description: NXP BT UART driver
+    category:
+      - drivers/bluetooth
+    vendor: NXP
+    license:
+      name: LICENSE.nxp
+      info: Redistributable
+    info: No info
+    files:
+      - name: nxp/uartuart8997_bt_v4.bin
+        version: "16.92.21.p81"
+      - name: nxp/uartiw416_bt_v0.bin
+        version: "16.92.21.p81"
+      - name: nxp/helper_uart_3000000.bin
+        version: "16.92.21.p81"
+      - name: nxp/uartuart8987_bt.bin
+        version: "16.92.21.p76.5"
+      - name: nxp/uartuart9098_bt_v1.bin
+        version: "17.92.1.p136.24"
+      - name: nxp/uartspi_n61x_v1.bin.se
+        version: "18.99.1.p154.40"
