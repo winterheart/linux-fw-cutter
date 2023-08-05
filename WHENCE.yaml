@@ -5,7 +5,7 @@
 
 metadata:
   format_version: "3"
-  firmware_version: "20230404"
+  firmware_version: "20230515"
 
 entries:
   - name: BCM-0bb4-0306
@@ -1588,8 +1588,10 @@ entries:
       info: Redistributable
     info: Downloaded from http://www.mediatek.com/en/downloads/
     files:
-      - name: mt7601u.bin
+      - name: mediatek/mt7601u.bin
         version: "34"
+        links:
+          - mt7601u.bin
 
   - name: rt2800pci
     description: Ralink RT2860, RT2890, RT3090, RT3290, RT5390 wireless MACs
@@ -3923,37 +3925,62 @@ entries:
     files:
       - name: ath11k/IPQ6018/hw1.0/board-2.bin
       - name: ath11k/IPQ6018/hw1.0/m3_fw.b00
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ6018/hw1.0/m3_fw.b01
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ6018/hw1.0/m3_fw.b02
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ6018/hw1.0/m3_fw.flist
       - name: ath11k/IPQ6018/hw1.0/m3_fw.mdt
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ6018/hw1.0/q6_fw.b00
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ6018/hw1.0/q6_fw.b01
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ6018/hw1.0/q6_fw.b02
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ6018/hw1.0/q6_fw.b03
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ6018/hw1.0/q6_fw.b04
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ6018/hw1.0/q6_fw.b05
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ6018/hw1.0/q6_fw.b07
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ6018/hw1.0/q6_fw.b08
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ6018/hw1.0/q6_fw.flist
       - name: ath11k/IPQ6018/hw1.0/q6_fw.mdt
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ6018/hw1.0/Notice.txt
       - name: ath11k/IPQ8074/hw2.0/board-2.bin
       - name: ath11k/IPQ8074/hw2.0/m3_fw.b00
       - name: ath11k/IPQ8074/hw2.0/m3_fw.b01
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ8074/hw2.0/m3_fw.b02
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ8074/hw2.0/m3_fw.flist
       - name: ath11k/IPQ8074/hw2.0/m3_fw.mdt
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ8074/hw2.0/q6_fw.b00
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ8074/hw2.0/q6_fw.b01
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ8074/hw2.0/q6_fw.b02
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ8074/hw2.0/q6_fw.b03
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ8074/hw2.0/q6_fw.b04
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ8074/hw2.0/q6_fw.b05
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ8074/hw2.0/q6_fw.b07
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ8074/hw2.0/q6_fw.b08
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ8074/hw2.0/q6_fw.flist
       - name: ath11k/IPQ8074/hw2.0/q6_fw.mdt
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ8074/hw2.0/Notice.txt
       - name: ath11k/QCA6390/hw2.0/board-2.bin
       - name: ath11k/QCA6390/hw2.0/amss.bin
@@ -3979,20 +4006,34 @@ entries:
         version: WLAN.HSP.1.1-03125-QCAHSPSWPL_V1_V2_SILICONZ_LITE-3.6510.23
       - name: ath11k/QCN9074/hw1.0/board-2.bin
       - name: ath11k/QCN9074/hw1.0/amss.bin
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/QCN9074/hw1.0/m3.bin
+        version: WLAN.HK.2.7.0.1-01744-QCAHKSWPL_SILICONZ-1
       - name: ath11k/QCN9074/hw1.0/Notice.txt
       - name: ath11k/WCN6750/hw1.0/board-2.bin
+        version: WLAN.MSL.1.0.1-01160-QCAMSLSWPLZ-1
       - name: ath11k/WCN6750/hw1.0/wpss.b00
+        version: WLAN.MSL.1.0.1-01160-QCAMSLSWPLZ-1
       - name: ath11k/WCN6750/hw1.0/wpss.b01
+        version: WLAN.MSL.1.0.1-01160-QCAMSLSWPLZ-1
       - name: ath11k/WCN6750/hw1.0/wpss.b02
+        version: WLAN.MSL.1.0.1-01160-QCAMSLSWPLZ-1
       - name: ath11k/WCN6750/hw1.0/wpss.b03
+        version: WLAN.MSL.1.0.1-01160-QCAMSLSWPLZ-1
       - name: ath11k/WCN6750/hw1.0/wpss.b04
+        version: WLAN.MSL.1.0.1-01160-QCAMSLSWPLZ-1
       - name: ath11k/WCN6750/hw1.0/wpss.b05
+        version: WLAN.MSL.1.0.1-01160-QCAMSLSWPLZ-1
       - name: ath11k/WCN6750/hw1.0/wpss.b06
+        version: WLAN.MSL.1.0.1-01160-QCAMSLSWPLZ-1
       - name: ath11k/WCN6750/hw1.0/wpss.b07
+        version: WLAN.MSL.1.0.1-01160-QCAMSLSWPLZ-1
       - name: ath11k/WCN6750/hw1.0/wpss.b08
+        version: WLAN.MSL.1.0.1-01160-QCAMSLSWPLZ-1
       - name: ath11k/WCN6750/hw1.0/wpss.mdt
+        version: WLAN.MSL.1.0.1-01160-QCAMSLSWPLZ-1
       - name: ath11k/WCN6750/hw1.0/Notice.txt
+        version: WLAN.MSL.1.0.1-01160-QCAMSLSWPLZ-1
       - name: ath11k/IPQ5018/hw1.0/board-2.bin
         version: WLAN.HK.2.6.0.1-00861-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ5018/hw1.0/m3_fw.b00
@@ -4261,69 +4302,69 @@ entries:
       - name: intel/ibt-18-1.ddc
         version: BT_ThunderPeak_A0_B0_REL0201
       - name: intel/ibt-20-0-3.sfi
-        version: BT_CyclonePeak_A0_REL53263
+        version: BT_CyclonePeak_A0_REL53392
       - name: intel/ibt-20-0-3.ddc
-        version: BT_CyclonePeak_A0_REL53263
+        version: BT_CyclonePeak_A0_REL53392
       - name: intel/ibt-20-1-3.sfi
-        version: BT_CyclonePeak_A0_REL53263
+        version: BT_CyclonePeak_A0_REL53392
       - name: intel/ibt-20-1-3.ddc
-        version: BT_CyclonePeak_A0_REL53263
+        version: BT_CyclonePeak_A0_REL53392
       - name: intel/ibt-20-1-4.sfi
-        version: BT_CyclonePeak_A0_REL53263
+        version: BT_CyclonePeak_A0_REL53392
       - name: intel/ibt-20-1-4.ddc
-        version: BT_CyclonePeak_A0_REL53263
+        version: BT_CyclonePeak_A0_REL53392
       - name: intel/ibt-19-0-0.sfi
-        version: BT_Quasar_REL53263
+        version: BT_Quasar_REL53392
       - name: intel/ibt-19-0-0.ddc
-        version: BT_Quasar_REL53263
+        version: BT_Quasar_REL53392
       - name: intel/ibt-19-0-1.sfi
-        version: BT_Quasar_REL53263
+        version: BT_Quasar_REL53392
       - name: intel/ibt-19-0-1.ddc
-        version: BT_Quasar_REL53263
+        version: BT_Quasar_REL53392
       - name: intel/ibt-19-0-3.sfi
         version: BT_Quasar_REL53263
       - name: intel/ibt-19-0-3.ddc
         version: BT_Quasar_REL53263
       - name: intel/ibt-19-0-4.sfi
-        version: BT_HarrisonPeak_REL53263
+        version: BT_HarrisonPeak_REL53392
       - name: intel/ibt-19-0-4.ddc
-        version: BT_HarrisonPeak_REL53263
+        version: BT_HarrisonPeak_REL53392
       - name: intel/ibt-19-16-4.sfi
-        version: BT_HarrisonPeak_REL53263
+        version: BT_HarrisonPeak_REL53392
       - name: intel/ibt-19-16-4.ddc
-        version: BT_HarrisonPeak_REL53263
+        version: BT_HarrisonPeak_REL53392
       - name: intel/ibt-19-32-1.sfi
-        version: BT_HarrisonPeak_REL53263
+        version: BT_HarrisonPeak_REL53392
       - name: intel/ibt-19-32-1.ddc
-        version: BT_HarrisonPeak_REL53263
+        version: BT_HarrisonPeak_REL53392
       - name: intel/ibt-19-32-0.sfi
-        version: BT_HarrisonPeak_REL53263
+        version: BT_HarrisonPeak_REL53392
       - name: intel/ibt-19-32-0.ddc
-        version: BT_HarrisonPeak_REL53263
+        version: BT_HarrisonPeak_REL53392
       - name: intel/ibt-19-32-4.sfi
-        version: BT_HarrisonPeak_REL53263
+        version: BT_HarrisonPeak_REL53392
       - name: intel/ibt-19-32-4.ddc
-        version: BT_HarrisonPeak_REL53263
+        version: BT_HarrisonPeak_REL53392
       - name: intel/ibt-19-240-1.sfi
-        version: BT_HarrisonPeak_REL53263
+        version: BT_HarrisonPeak_REL53392
       - name: intel/ibt-19-240-1.ddc
-        version: BT_HarrisonPeak_REL53263
+        version: BT_HarrisonPeak_REL53392
       - name: intel/ibt-19-240-4.sfi
-        version: BT_HarrisonPeak_REL53263
+        version: BT_HarrisonPeak_REL53392
       - name: intel/ibt-19-240-4.ddc
-        version: BT_HarrisonPeak_REL53263
+        version: BT_HarrisonPeak_REL53392
       - name: intel/ibt-0041-0041.sfi
-        version: BT_TyphoonPeak_REL59564
+        version: BT_TyphoonPeak_REL62562
       - name: intel/ibt-0041-0041.ddc
-        version: BT_TyphoonPeak_REL59564
+        version: BT_TyphoonPeak_REL62562
       - name: intel/ibt-0040-0041.sfi
-        version: BT_Solar_GfP2_REL59564
+        version: BT_Solar_GfP2_REL62562
       - name: intel/ibt-0040-0041.ddc
-        version: BT_Solar_GfP2_REL59564
+        version: BT_Solar_GfP2_REL62562
       - name: intel/ibt-1040-0041.sfi
-        version: BT_SolarF_GfP2_REL59564
+        version: BT_SolarF_GfP2_REL62562
       - name: intel/ibt-1040-0041.ddc
-        version: BT_SolarF_GfP2_REL59564
+        version: BT_SolarF_GfP2_REL62562
       - name: intel/ibt-0040-1020.sfi
         version: BT_Solar_JfP1_REL59564
       - name: intel/ibt-0040-1020.ddc
@@ -4341,13 +4382,13 @@ entries:
       - name: intel/ibt-1040-2120.ddc
         version: BT_SolarF_JfP2_REL59564
       - name: intel/ibt-0040-4150.sfi
-        version: BT_Solar_JnP2_REL59564
+        version: BT_Solar_JnP2_REL62562
       - name: intel/ibt-0040-4150.ddc
-        version: BT_Solar_JnP2_REL59564
+        version: BT_Solar_JnP2_REL62562
       - name: intel/ibt-1040-4150.sfi
-        version: BT_SolarF_JnP2_REL59564
+        version: BT_SolarF_JnP2_REL62562
       - name: intel/ibt-1040-4150.ddc
-        version: BT_SolarF_JnP2_REL59564
+        version: BT_SolarF_JnP2_REL62562
 
   - name: btrtl
     description: Realtek Bluetooth USB driver
@@ -4366,12 +4407,6 @@ entries:
       From https://github.com/troy-tan/driver_store
       Files rtl_bt/rtl8822b_* came directly from Realtek. These files are
       updated on April 14, 2017.
-      Files rtl_bt/rtl8821c_* and rtl_bt/rtl8723d_* came directly from Realtek.
-      File rtl_bt/rtl8822cu_fw.bin came directly from Realtek. Updated on
-      February 24, 2019
-      File rtl_bt/rtl8822cu_fw.bin came directly from Realtek. Updated on
-      October 23, 2019
-      File rtl_bt/rtl8822cu_config.bin came directly from Realtek.
     files:
       - name: rtl_bt/rtl8192ee_fw.bin
       - name: rtl_bt/rtl8192eu_fw.bin
@@ -4408,6 +4443,8 @@ entries:
       - name: rtl_bt/rtl8852bu_config.bin
       - name: rtl_bt/rtl8852cu_fw.bin
       - name: rtl_bt/rtl8852cu_config.bin
+      - name: rtl_bt/rtl8851bu_fw.bin
+      - name: rtl_bt/rtl8851bu_config.bin
 
   - name: btmtk_usb
     description: Bluetooth USB driver
@@ -4421,7 +4458,9 @@ entries:
       info: Redistributable
     info: No info
     files:
-      - name: mt7650.bin
+      - name: mediatek/mt7650.bin
+        links:
+          - mt7650.bin
 
   - name: rp2
     description: Comtrol RocketPort 2 serial driver
@@ -4524,7 +4563,7 @@ entries:
       - name: amd-ucode/microcode_amd_fam16h.bin
         version: "2014-10-28"
       - name: amd-ucode/microcode_amd_fam17h.bin
-        version: "2022-04-08"
+        version: "2023-04-13"
       - name: amd-ucode/microcode_amd_fam19h.bin
         version: "2023-01-31"
       - name: amd-ucode/README
@@ -4995,6 +5034,8 @@ entries:
       - name: qca/msbtfw11.mbn
       - name: qca/msbtfw11.tlv
       - name: qca/msnv11.bin
+      - name: qca/msnv11.b0a
+      - name: qca/msnv11.b09
 
   - name: qca
     description: Qualcomm Atheros Bluetooth support for QCA2066 chips
@@ -5306,6 +5347,8 @@ entries:
         version: DMC API/APB ver 2 release 10 for Meteorlake
       - name: i915/mtl_dmc.bin
         version: DMC API/APB ver 2 release 12 for Meteorlake
+      - name: i915/mtl_guc_70.bin
+        version: GuC API/APB ver 70.6.6 for Meteorlake
 
   - name: nouveau
     description: NVIDIA GPU driver
@@ -5904,8 +5947,6 @@ entries:
         version: "20180621204904"
       - name: mediatek/mt7668pr2h.bin
         version: "20180517181834"
-      - name: mediatek/mt7663pr2h.bin
-        version: 7663e2ccn04-2006030247
 
   - name: rk3399-dptx
     description: ROCKCHIP rk3399 dptx firmware
@@ -5951,10 +5992,14 @@ entries:
       info: Redistributable
     info: No info
     files:
-      - name: mt7662.bin
+      - name: mediatek/mt7662.bin
         version: "1.9"
-      - name: mt7662_rom_patch.bin
+        links:
+          - mt7662.bin
+      - name: mediatek/mt7662_rom_patch.bin
         version: 0.0.2_P69
+        links:
+          - mt7662_rom_patch.bin
 
   - name: mt76x2u
     description: MediaTek MT76x2u Wireless MACs
@@ -6024,7 +6069,7 @@ entries:
         version: 7663mp1827-20190914043434
 
   - name: mt7915e
-    description: MediaTek Wireless MACs for MT7915/MT7916/MT7986
+    description: MediaTek Wireless MACs for MT7915/MT7916/MT7986/MT7981
     category:
       - drivers/net/wireless
     vendor: MediaTek
@@ -6044,11 +6089,11 @@ entries:
       - name: mediatek/mt7915_eeprom_dbdc.bin
         version: "20200821"
       - name: mediatek/mt7916_wm.bin
-        version: "20221031154713"
+        version: "20230202145005"
       - name: mediatek/mt7916_wa.bin
-        version: "20221031154757"
+        version: "20230202143332"
       - name: mediatek/mt7916_rom_patch.bin
-        version: "20221031154652a"
+        version: "20230202144915a"
       - name: mediatek/mt7916_eeprom.bin
         version: "20211130"
       - name: mediatek/mt7986_wm.bin
@@ -6073,6 +6118,14 @@ entries:
         version: "20211115"
       - name: mediatek/mt7986_eeprom_mt7975_dual.bin
         version: "20220208"
+      - name: mediatek/mt7981_wm.bin
+        version: "20221208201806"
+      - name: mediatek/mt7981_wa.bin
+        version: "20221208202048"
+      - name: mediatek/mt7981_rom_patch.bin
+        version: "20221208201745a"
+      - name: mediatek/mt7981_wo.bin
+        version: "20221208202138"
 
   - name: mt7921
     description: MediaTek MT7921 Wireless MACs
@@ -6085,9 +6138,9 @@ entries:
     info: No info
     files:
       - name: mediatek/WIFI_MT7961_patch_mcu_1_2_hdr.bin
-        version: "20230302150916a"
+        version: "20230331110902a"
       - name: mediatek/WIFI_RAM_CODE_MT7961_1.bin
-        version: "20230302150956"
+        version: "20230331110939"
 
   - name: mt7921
     description: MediaTek MT7921 bluetooth chipset
@@ -6100,7 +6153,7 @@ entries:
     info: No info
     files:
       - name: mediatek/BT_RAM_CODE_MT7961_1_2_hdr.bin
-        version: "20230302151355"
+        version: "20230331111156"
 
   - name: mt7922
     description: MediaTek MT7922 Wireless MACs
@@ -6113,9 +6166,9 @@ entries:
     info: No info
     files:
       - name: mediatek/WIFI_MT7922_patch_mcu_1_1_hdr.bin
-        version: "20230328143229a"
+        version: "20230509203612a"
       - name: mediatek/WIFI_RAM_CODE_MT7922_1.bin
-        version: "20230328143313"
+        version: "20230509203655"
 
   - name: mt7922
     description: MediaTek MT7922 bluetooth chipset
@@ -6128,7 +6181,7 @@ entries:
     info: No info
     files:
       - name: mediatek/BT_RAM_CODE_MT7922_1_1_hdr.bin
-        version: "20230328143444"
+        version: "20230509203838"
 
   - name: nfp
     description: Netronome Flow Processor
@@ -6886,6 +6939,42 @@ entries:
           - cirrus/cs35l41-dsp1-spk-cali-10431f12.wmfw
           - cirrus/cs35l41-dsp1-spk-prot-10431e12.wmfw
           - cirrus/cs35l41-dsp1-spk-cali-10431e12.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-17aa2318.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-17aa2318.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-17aa2319.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-17aa2319.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-17aa231a.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-17aa231a.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-17aa2316.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-17aa2316.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-17aa2317.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-17aa2317.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-103c8c26.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-103c8c26.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-103c8b42.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-103c8b42.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-103c8b43.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-103c8b43.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-103c8b44.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-103c8b44.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-103c8b45.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-103c8b45.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-103c8b46.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-103c8b46.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-103c8b47.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-103c8b47.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-103c8b63.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-103c8b63.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-103c8b70.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-103c8b70.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-103c8b72.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-103c8b72.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-103c8b74.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-103c8b74.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-103c8b77.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-103c8b77.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-103c8b8f.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-103c8b92.wmfw
       - name: cirrus/cs35l41-dsp1-spk-cali-103c8971.bin
         links:
           - cirrus/cs35l41-dsp1-spk-cali-103c898e.bin
@@ -6965,21 +7054,37 @@ entries:
       - name: cirrus/cs35l41-dsp1-spk-prot-17aa3855-spkid1-r0.bin
       - name: cirrus/cs35l41-dsp1-spk-cali-17aa3855-spkid1.bin
       - name: cirrus/cs35l41-dsp1-spk-prot-17aa22f1-l0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-17aa2318-l0.bin
       - name: cirrus/cs35l41-dsp1-spk-prot-17aa22f1-r0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-17aa2318-r0.bin
       - name: cirrus/cs35l41-dsp1-spk-cali-17aa22f1-l0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-cali-17aa2318-l0.bin
       - name: cirrus/cs35l41-dsp1-spk-cali-17aa22f1-r0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-cali-17aa2318-r0.bin
       - name: cirrus/cs35l41-dsp1-spk-prot-17aa22f2-l0.bin
         links:
           - cirrus/cs35l41-dsp1-spk-prot-17aa22f3-l0.bin
+          - cirrus/cs35l41-dsp1-spk-prot-17aa2319-l0.bin
+          - cirrus/cs35l41-dsp1-spk-prot-17aa231a-l0.bin
       - name: cirrus/cs35l41-dsp1-spk-prot-17aa22f2-r0.bin
         links:
           - cirrus/cs35l41-dsp1-spk-prot-17aa22f3-r0.bin
+          - cirrus/cs35l41-dsp1-spk-prot-17aa2319-r0.bin
+          - cirrus/cs35l41-dsp1-spk-prot-17aa231a-r0.bin
       - name: cirrus/cs35l41-dsp1-spk-cali-17aa22f2-l0.bin
         links:
           - cirrus/cs35l41-dsp1-spk-cali-17aa22f3-l0.bin
+          - cirrus/cs35l41-dsp1-spk-cali-17aa2319-l0.bin
+          - cirrus/cs35l41-dsp1-spk-cali-17aa231a-l0.bin
       - name: cirrus/cs35l41-dsp1-spk-cali-17aa22f2-r0.bin
         links:
           - cirrus/cs35l41-dsp1-spk-cali-17aa22f3-r0.bin
+          - cirrus/cs35l41-dsp1-spk-cali-17aa2319-r0.bin
+          - cirrus/cs35l41-dsp1-spk-cali-17aa231a-r0.bin
       - name: cirrus/cs35l41/v6.63.0/halo_cspl_RAM_revB2_29.65.0.wmfw
         links:
           - cirrus/cs35l41-dsp1-spk-prot-104312af.wmfw
@@ -7024,6 +7129,80 @@ entries:
       - name: cirrus/cs35l41-dsp1-spk-prot-10431e12-spkid0-r0.bin
       - name: cirrus/cs35l41-dsp1-spk-prot-10431e12-spkid1-l0.bin
       - name: cirrus/cs35l41-dsp1-spk-prot-10431e12-spkid1-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-17aa2316-spkid0-l0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-17aa2317-spkid0-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-17aa2316-spkid0-r0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-17aa2317-spkid0-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-17aa2316-spkid1-l0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-17aa2317-spkid1-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-17aa2316-spkid1-r0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-17aa2317-spkid1-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-17aa2316-spkid0-l0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-cali-17aa2317-spkid0-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-17aa2316-spkid0-r0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-cali-17aa2317-spkid0-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-17aa2316-spkid1-l0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-cali-17aa2317-spkid1-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-17aa2316-spkid1-r0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-cali-17aa2317-spkid1-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-103c8b42.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-103c8b70.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-103c8b42.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-cali-103c8b70.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-103c8b43.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-103c8b43.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-103c8b44.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-103c8b44.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-103c8b45.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-103c8b46.bin
+          - cirrus/cs35l41-dsp1-spk-prot-103c8b72.bin
+          - cirrus/cs35l41-dsp1-spk-prot-103c8b77.bin
+          - cirrus/cs35l41-dsp1-spk-prot-103c8c26.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-103c8b45.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-cali-103c8b46.bin
+          - cirrus/cs35l41-dsp1-spk-cali-103c8b72.bin
+          - cirrus/cs35l41-dsp1-spk-cali-103c8b77.bin
+          - cirrus/cs35l41-dsp1-spk-cali-103c8c26.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-103c8b47.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-103c8b74.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-103c8b47.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-cali-103c8b74.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-103c8b63-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-103c8b63-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-103c8b63-r1.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-103c8b63-r1.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-103c8b63-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-103c8b63-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-103c8b63-l1.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-103c8b63-l1.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-103c8b8f-r0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-103c8b8f-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-103c8b8f-r1.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-103c8b8f-l1.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-103c8b8f-r0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-cali-103c8b8f-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-103c8b8f-r1.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-cali-103c8b8f-l1.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-103c8b92.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-103c8b92.bin
 
   - name: mtk-sof
     description: MediaTek Sound Open Firmware driver
