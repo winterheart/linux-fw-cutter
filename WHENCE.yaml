@@ -5,7 +5,7 @@
 
 metadata:
   format_version: "3"
-  firmware_version: "20230515"
+  firmware_version: "20230625"
 
 entries:
   - name: BCM-0bb4-0306
@@ -656,15 +656,15 @@ entries:
     files:
       - name: cxgb4/t4fw-1.14.4.0.bin
       - name: cxgb4/t4fw-1.15.37.0.bin
-      - name: cxgb4/t4fw-1.27.1.0.bin
+      - name: cxgb4/t4fw-1.27.3.0.bin
         links:
           - cxgb4/t4fw.bin
       - name: cxgb4/t5fw-1.14.4.0.bin
       - name: cxgb4/t5fw-1.15.37.0.bin
-      - name: cxgb4/t5fw-1.27.1.0.bin
+      - name: cxgb4/t5fw-1.27.3.0.bin
         links:
           - cxgb4/t5fw.bin
-      - name: cxgb4/t6fw-1.27.1.0.bin
+      - name: cxgb4/t6fw-1.27.3.0.bin
         links:
           - cxgb4/t6fw.bin
       - name: cxgb4/aq1202_fw.cld
@@ -2589,6 +2589,7 @@ entries:
       - name: amdgpu/gc_11_0_0_mec.bin
       - name: amdgpu/gc_11_0_0_mes1.bin
       - name: amdgpu/gc_11_0_0_mes.bin
+      - name: amdgpu/gc_11_0_0_mes_2.bin
       - name: amdgpu/gc_11_0_0_pfp.bin
       - name: amdgpu/gc_11_0_0_rlc.bin
       - name: amdgpu/gc_11_0_1_imu.bin
@@ -2596,6 +2597,7 @@ entries:
       - name: amdgpu/gc_11_0_1_mec.bin
       - name: amdgpu/gc_11_0_1_mes.bin
       - name: amdgpu/gc_11_0_1_mes1.bin
+      - name: amdgpu/gc_11_0_1_mes_2.bin
       - name: amdgpu/gc_11_0_1_pfp.bin
       - name: amdgpu/gc_11_0_1_rlc.bin
       - name: amdgpu/gc_11_0_2_imu.bin
@@ -2603,6 +2605,7 @@ entries:
       - name: amdgpu/gc_11_0_2_mec.bin
       - name: amdgpu/gc_11_0_2_mes1.bin
       - name: amdgpu/gc_11_0_2_mes.bin
+      - name: amdgpu/gc_11_0_2_mes_2.bin
       - name: amdgpu/gc_11_0_2_pfp.bin
       - name: amdgpu/gc_11_0_2_rlc.bin
       - name: amdgpu/gc_11_0_4_imu.bin
@@ -2610,6 +2613,7 @@ entries:
       - name: amdgpu/gc_11_0_4_mec.bin
       - name: amdgpu/gc_11_0_4_mes.bin
       - name: amdgpu/gc_11_0_4_mes1.bin
+      - name: amdgpu/gc_11_0_4_mes_2.bin
       - name: amdgpu/gc_11_0_4_pfp.bin
       - name: amdgpu/gc_11_0_4_rlc.bin
       - name: amdgpu/dcn_3_1_4_dmcub.bin
@@ -3050,8 +3054,16 @@ entries:
         links:
           - "brcm/brcmfmac43455-sdio.beagle,am5729-beagleboneai.txt"
           - "brcm/brcmfmac43455-sdio.pine64,pinebook-pro.txt"
+          - "brcm/brcmfmac43455-sdio.pine64,pinenote-v1.1.txt"
+          - "brcm/brcmfmac43455-sdio.pine64,pinenote-v1.2.txt"
           - "brcm/brcmfmac43455-sdio.pine64,pinephone-pro.txt"
+          - "brcm/brcmfmac43455-sdio.pine64,quartz64-a.txt"
           - "brcm/brcmfmac43455-sdio.pine64,quartz64-b.txt"
+          - "brcm/brcmfmac43455-sdio.pine64,rockpro64-v2.0.txt"
+          - "brcm/brcmfmac43455-sdio.pine64,rockpro64-v2.1.txt"
+          - "brcm/brcmfmac43455-sdio.pine64,soquartz-model-a.txt"
+          - "brcm/brcmfmac43455-sdio.pine64,soquartz-cm4io.txt"
+          - "brcm/brcmfmac43455-sdio.pine64,soquartz-blade.txt"
 
   - name: ti-vpe
     description: Texas Instruments V4L2 driver for Video Processing Engine
@@ -3411,21 +3423,6 @@ entries:
     files:
       - name: rtlwifi/rtl8188efw.bin
 
-  - name: rtl8188eu
-    description: Realtek 802.11n WLAN driver for RTL8188EU
-    category:
-      - drivers/net/wireless
-    vendor: Realtek
-    license:
-      name: LICENCE.rtlwifi_firmware.txt
-      copyright: >
-        Copyright (c) 2010, Realtek Semiconductor Corporation. All rights
-        reserved.
-      info: Redistributable
-    info: Taken from Realtek version RTL8188EUS_linux_v4.1.4_6773.20130222
-    files:
-      - name: rtlwifi/rtl8188eufw.bin
-
   - name: rtl8821ae
     description: Realtek 802.11n WLAN driver for RTL8812AE
     category:
@@ -3509,7 +3506,7 @@ entries:
       - name: rtw88/rtw8821c_fw.bin
 
   - name: rtw89
-    description: Realtek 802.11ax WLAN driver for RTL8852A/RTL8852B/RTL8852C
+    description: Realtek 802.11ax WLAN driver for RTL8851B/RTL8852A/RTL8852B/RTL8852C
     category:
       - drivers/net/wireless
     vendor: Realtek
@@ -3521,6 +3518,7 @@ entries:
       info: Redistributable
     info: No info
     files:
+      - name: rtw89/rtw8851b_fw.bin
       - name: rtw89/rtw8852a_fw.bin
       - name: rtw89/rtw8852b_fw.bin
       - name: rtw89/rtw8852b_fw-1.bin
@@ -3590,6 +3588,19 @@ entries:
       - name: rtlwifi/rtl8710bufw_UMC.bin
         version: "16.0"
       - name: rtlwifi/rtl8723bs_bt.bin
+      - name: rtlwifi/rtl8188eufw.bin
+        version: "28.0"
+        info: |
+          rtl8188eu taken from Realtek driver version v5.2.2.4_25483.20171222.
+          Firmware is embedded in the driver as data statements. This info
+          has been extracted into a binary file.
+      - name: rtlwifi/rtl8192fufw.bin
+        version: "6.0"
+        info: |
+          rtl8192fu taken from Realtek driver version v5.8.6.2_35538.20191028_COEX20190910-0d02.
+          Firmware is embedded in the driver as data statements. This info
+          has been extracted into a binary file.
+
 
   - name: r8169
     description: RealTek 8169/8168/8101 ethernet driver
@@ -5349,6 +5360,8 @@ entries:
         version: DMC API/APB ver 2 release 12 for Meteorlake
       - name: i915/mtl_guc_70.bin
         version: GuC API/APB ver 70.6.6 for Meteorlake
+      - name: i915/mtl_huc_gsc.bin
+        version: HuC API/APB ver 8.5.0 for Meteorlake
 
   - name: nouveau
     description: NVIDIA GPU driver
@@ -5845,7 +5858,7 @@ entries:
       - name: atmel/wilc1000_p2p_fw.bin
       - name: atmel/wilc1000_wifi_firmware.bin
       - name: atmel/wilc1000_wifi_firmware-1.bin
-        version: "15.6"
+        version: "16.0"
 
   - name: hfi1
     description: Intel OPA Gen 1 adapter
@@ -5931,7 +5944,7 @@ entries:
       - name: mediatek/mt8192/scp.img
         version: v2.0.20536
       - name: mediatek/mt8195/scp.img
-        version: v2.0.20536
+        version: v2.0.11966
 
   - name: btmtk
     description: MediaTek Bluetooth Driver
@@ -6138,9 +6151,9 @@ entries:
     info: No info
     files:
       - name: mediatek/WIFI_MT7961_patch_mcu_1_2_hdr.bin
-        version: "20230331110902a"
+        version: "20230526130917a"
       - name: mediatek/WIFI_RAM_CODE_MT7961_1.bin
-        version: "20230331110939"
+        version: "20230526130958"
 
   - name: mt7921
     description: MediaTek MT7921 bluetooth chipset
@@ -6153,7 +6166,7 @@ entries:
     info: No info
     files:
       - name: mediatek/BT_RAM_CODE_MT7961_1_2_hdr.bin
-        version: "20230331111156"
+        version: "20230526131214"
 
   - name: mt7922
     description: MediaTek MT7922 Wireless MACs
@@ -6166,9 +6179,9 @@ entries:
     info: No info
     files:
       - name: mediatek/WIFI_MT7922_patch_mcu_1_1_hdr.bin
-        version: "20230509203612a"
+        version: "20230530123154a"
       - name: mediatek/WIFI_RAM_CODE_MT7922_1.bin
-        version: "20230509203655"
+        version: "20230530123236"
 
   - name: mt7922
     description: MediaTek MT7922 bluetooth chipset
@@ -6181,7 +6194,7 @@ entries:
     info: No info
     files:
       - name: mediatek/BT_RAM_CODE_MT7922_1_1_hdr.bin
-        version: "20230509203838"
+        version: "20230530123531"
 
   - name: nfp
     description: Netronome Flow Processor
@@ -6464,13 +6477,18 @@ entries:
       info: Redistributable. See qcom/NOTICE.txt for details
     info: |
       Binary files supplied originally from
-      http://releases.linaro.org/96boards/dragonboard845c/qualcomm/firmware/RB3_firmware_20190529180356-v4.zip
+      http://releases.linaro.org/96boards/dragonboard410c/qualcomm/firmware/linux-board-support-package-r1036.1.zip
+      http://releases.linaro.org/96boards/dragonboard845c/qualcomm/firmware/RB3_firmware_20221121000000-v5.zip
       http://releases.linaro.org/96boards/rb5/qualcomm/firmware/RB5_firmware_20210331-v4.zip
       adsp.mbn has been converted from 20-adsp_split/firmware/adsp.* using
       https://github.com/andersson/pil-squasher
       cdsp.mbn has been converted from 21-cdsp_split/firmware/cdsp.* using
       https://github.com/andersson/pil-squasher
     files:
+      - name: qcom/apq8016/mba.mbn
+      - name: qcom/apq8016/modem.mbn
+      - name: qcom/apq8016/wcnss.mbn
+      - name: qcom/apq8016/WCNSS_qcom_wlan_nv_sbc.bin
       - name: qcom/apq8096/adsp.mbn
       - name: qcom/apq8096/adspr.jsn
       - name: qcom/apq8096/adspua.jsn
@@ -6508,12 +6526,14 @@ entries:
       info: Redistributable. See qcom/NOTICE.txt for details
     info: |
       Binary files supplied originally from
-      http://releases.linaro.org/96boards/dragonboard845c/qualcomm/firmware/RB3_firmware_20190529180356-v4.zip
+      http://releases.linaro.org/96boards/dragonboard845c/qualcomm/firmware/RB3_firmware_20221121000000-v5.zip
       modem.mbn has been converted from 28-modem/modem.* using
       https://github.com/andersson/pil-squasher
     files:
       - name: qcom/sdm845/mba.mbn
-      - name: qcom/sdm845/modem.mbn
+      - name: qcom/sdm845/modem_nm.mbn
+        links:
+          - qcom/sdm845/modem.mbn
       - name: qcom/sdm845/modemuw.jsn
 
   - name: mlxsw_spectrum
@@ -6732,8 +6752,8 @@ entries:
       info: Redistributable
     info: No info
     files:
-      - name: intel/ice/ddp-comms/ice_comms-1.3.31.0.pkg
-      - name: intel/ice/ddp-wireless_edge/ice_wireless_edge-1.3.7.0.pkg
+      - name: intel/ice/ddp-comms/ice_comms-1.3.40.0.pkg
+      - name: intel/ice/ddp-wireless_edge/ice_wireless_edge-1.3.10.0.pkg
 
   - name: inside-secure
     description: Inside Secure EIP197 crypto driver
@@ -6975,6 +6995,18 @@ entries:
           - cirrus/cs35l41-dsp1-spk-cali-103c8b77.wmfw
           - cirrus/cs35l41-dsp1-spk-prot-103c8b8f.wmfw
           - cirrus/cs35l41-dsp1-spk-prot-103c8b92.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-10431b93.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-10431b93.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-10431a20.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-10431a20.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-10431a30.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-10431a30.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-10431a40.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-10431a40.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-10431a50.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-10431a50.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-10431a60.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-10431a60.wmfw
       - name: cirrus/cs35l41-dsp1-spk-cali-103c8971.bin
         links:
           - cirrus/cs35l41-dsp1-spk-cali-103c898e.bin
@@ -7203,6 +7235,70 @@ entries:
           - cirrus/cs35l41-dsp1-spk-cali-103c8b8f-l1.bin
       - name: cirrus/cs35l41-dsp1-spk-prot-103c8b92.bin
       - name: cirrus/cs35l41-dsp1-spk-cali-103c8b92.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431b93-spkid0-l0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-10433a20-spkid0-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431b93-spkid0-r0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-10433a20-spkid0-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431b93-spkid1-l0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-10433a20-spkid1-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431b93-spkid1-r0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-10433a20-spkid1-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431b93-spkid0-l0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-cali-10433a20-spkid0-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431b93-spkid0-r0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-cali-10433a20-spkid0-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431b93-spkid1-l0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-cali-10433a20-spkid1-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431b93-spkid1-r0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-cali-10433a20-spkid1-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10433a30-spkid1-l0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-10433a40-spkid1-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10433a30-spkid1-l0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-cali-10433a40-spkid1-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10433a30-spkid1-r0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-10433a40-spkid1-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10433a30-spkid1-r0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-cali-10433a40-spkid1-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10433a30-spkid0-l0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-10433a40-spkid0-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10433a30-spkid0-l0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-cali-10433a40-spkid0-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10433a30-spkid0-r0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-10433a40-spkid0-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10433a30-spkid0-r0.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-cali-10433a40-spkid0-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10433a50-spkid1-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10433a50-spkid1-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10433a50-spkid1-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10433a50-spkid1-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10433a50-spkid0-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10433a50-spkid0-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10433a50-spkid0-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10433a50-spkid0-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10433a60-spkid1-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10433a60-spkid1-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10433a60-spkid1-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10433a60-spkid1-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10433a60-spkid0-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10433a60-spkid0-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10433a60-spkid0-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10433a60-spkid0-r0.bin
 
   - name: mtk-sof
     description: MediaTek Sound Open Firmware driver
