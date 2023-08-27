@@ -54,7 +54,7 @@ Here are some quick examples.
 Let's say we need query info about `rtl8192cu` entry:
 
 ```
-linux-fw-cutter info -n rtl8192cu
+# linux-fw-cutter info -V -n rtl8192cu
 Entry: rtl8192cu
 Description: Realtek 802.11n WLAN driver for RTL8192CU
 Categories:
@@ -86,7 +86,7 @@ None
 
 List all available licenses:
 ```
-linux-fw-cutter list --license
+# linux-fw-cutter list --license
 GPL-2
 GPL-3
 LICENCE.Abilis
@@ -168,7 +168,7 @@ wfx/LICENCE.wf200
 Install only open-source firmwares:
 
 ```
-linux-fw-cutter install -l GPL-2,GPL-3
+# linux-fw-cutter install -l GPL-2,GPL-3
 ```
 
 ## License

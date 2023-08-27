@@ -270,9 +270,8 @@ class WhenceLoader:
                     case CompressionType.ZSTD:
                         with open(sourcepath, "rb") as source_fd:
                             with open(fullpath, "wb") as dest_fd:
-                                file_stats = sourcepath.stat()
                                 compressor = ZstdCompressor(write_content_size=True, write_checksum=True)
-                                compressor.copy_stream(source_fd, dest_fd, size=file_stats.st_size)
+                                compressor.copy_stream(source_fd, dest_fd, size=sourcepath.stat().st_size)
                     case CompressionType.NONE:
                         shutil.copyfile(sourcepath, fullpath)
             else:
@@ -395,8 +394,9 @@ if __name__ == "__main__":
 
     def do_info(args):
         content = WhenceLoader(args.whence)
-        print(f"format_version: {content.whence_content['metadata'].format_version}\n"
-              f"firmware_version: {content.whence_content['metadata'].firmware_version}\n")
+        if args.verbose:
+            print(f"format_version: {content.whence_content['metadata'].format_version}\n"
+                  f"firmware_version: {content.whence_content['metadata'].firmware_version}\n")
         for entry in content.list(
                 names=None if args.names is None else args.names.split(","),
                 vendors=None if args.vendors is None else args.vendors.split(","),
@@ -404,10 +404,14 @@ if __name__ == "__main__":
                 categories=None if args.categories is None else args.categories.split(",")
         ):
             try:
-                entry.size = sum((args.source / Path(itm.name)).stat().st_size for itm in entry.files)
+                if args.verbose:
+                    entry.size = sum((args.source / Path(itm.name)).stat().st_size for itm in entry.files)
             except FileNotFoundError as e:
                 logger.warning(f"Error calculation file size: {e}!")
-            print(entry)
+            if args.verbose:
+                print(entry)
+            else:
+                print(entry.name)
         sys.exit(0)
 
     def do_install(args):
@@ -487,8 +491,10 @@ if __name__ == "__main__":
         i.add_argument("-w", "--whence", help="Specify custom WHENCE.yaml file (default is WHENCE.yaml)",
                        default="WHENCE.yaml")
     for i in [parser_check, parser_info, parser_install]:
-        i.add_argument("-s", "--source", help="Source directory of linux-firmware package (default is current directory",
-                       default=".")
+        i.add_argument("-s", "--source",
+                       help="Source directory of linux-firmware package (default is current directory", default=".")
+    parser_info.add_argument("-V", "--verbose", action="store_true", help="Verbose mode",
+                             default=False)
 
     parser_install.add_argument("-d", "--destination", help="Destination directory (default is /lib/firmware)",
                                 default="/lib/firmware")
