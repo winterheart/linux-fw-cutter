@@ -56,6 +56,8 @@ entries:
         # Optional: If there sources for firmware, add them as list here
         source:
           - rtlwifi/src/
+        # Optional: If file should not compress on installation define it as false
+        compress: false
       - name: rtlwifi/rtl8192eu_nic.bin
         # Optional: List of symlinks for being installed.
         # rtlwifi/rtl8192eefw.bin -> rtlwifi/rtl8723bs_nic.bin is means that in directory

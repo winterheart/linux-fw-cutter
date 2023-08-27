@@ -4586,14 +4586,19 @@ entries:
     files:
       - name: amd-ucode/microcode_amd.bin
         version: "2013-07-10"
+        compress: false
       - name: amd-ucode/microcode_amd_fam15h.bin
         version: "2018-05-24"
+        compress: false
       - name: amd-ucode/microcode_amd_fam16h.bin
         version: "2014-10-28"
+        compress: false
       - name: amd-ucode/microcode_amd_fam17h.bin
         version: "2023-07-19"
+        compress: false
       - name: amd-ucode/microcode_amd_fam19h.bin
         version: "2023-07-18"
+        compress: false
       - name: amd-ucode/README
 
   - name: mxu11x0

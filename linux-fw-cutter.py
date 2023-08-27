@@ -4,15 +4,24 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # (c) 2022-2023 Azamat H. Hackimov <azamat.hackimov@gmail.com>
 
+from enum import Enum
 from marshmallow import Schema, fields, post_load, exceptions
 from pathlib import Path
+from zstandard import ZstdCompressor
 
 import argparse
 import logging
+import lzma
 import shutil
 import sys
 import yaml
 import yaml.scanner
+
+
+class CompressionType(Enum):
+    NONE = "none"
+    ZSTD = "zst"
+    XZ = "xz"
 
 
 class CustomFormatter(logging.Formatter):
@@ -88,6 +97,7 @@ class FileSchema(Schema):
     source = fields.List(fields.String())
     version = fields.String()
     links = fields.List(fields.String())
+    compress = fields.Boolean()
 
     @post_load
     def make_object(self, data, **kwargs):
@@ -116,19 +126,22 @@ class WhenceSchema(Schema):
 
 
 class File:
-    def __init__(self, name, info=None, source=None, version=None, links=None):
+    def __init__(self, name, info=None, source=None, version=None, links=None, compress=True):
         self.name = name
         self.info = info
         self.source = source
         self.version = version
         self.links = links
+        self.compress = compress
 
     def __repr__(self):
         return f"<File(name={self.name}, " \
                f"info={self.info}, " \
                f"source={self.source}, " \
                f"version={self.version}, " \
-               f"links={self.links})>"
+               f"links={self.links}, " \
+               f"compress={self.compress}" \
+               ")>"
 
     def __str__(self):
         result = f"  - Name: {self.name}"
@@ -229,14 +242,16 @@ class WhenceLoader:
             logger.error(f"Schema of WHENCE-file is incorrect: {e}!")
             sys.exit(1)
 
-    def _install(self, source: Path, file: Path, destination: Path):
+    def _install(self, source: Path, file: File, destination: Path, compress: CompressionType):
         """Install requested file"""
-        sourcepath = source / file
+        sourcepath = source / file.name
         if not sourcepath.exists():
             logger.error(f"Source file {source} does not exists")
             return
 
-        fullpath = destination / file
+        fullpath = destination / file.name
+        if file.compress:
+            fullpath = fullpath.with_suffix(fullpath.suffix + "." + compress.value)
         fullpath.parent.mkdir(mode=0o755, parents=True, exist_ok=True)
         if fullpath.exists() and fullpath.is_file():
             logger.warning(f"Target file {fullpath} exists, overwriting")
@@ -244,20 +259,40 @@ class WhenceLoader:
 
         if fullpath.is_dir():
             return
-        logger.info(f"Copying {file} to {fullpath}")
+        logger.info(f"Copying {file.name} to {fullpath}")
         try:
-            shutil.copyfile(sourcepath, fullpath)
+            if file.compress:
+                match compress:
+                    case CompressionType.XZ:
+                        with open(sourcepath, "rb") as source_fd:
+                            with lzma.open(fullpath, "wb", check=lzma.CHECK_CRC32) as dest_fd:
+                                shutil.copyfileobj(source_fd, dest_fd)
+                    case CompressionType.ZSTD:
+                        with open(sourcepath, "rb") as source_fd:
+                            with open(fullpath, "wb") as dest_fd:
+                                file_stats = sourcepath.stat()
+                                compressor = ZstdCompressor(write_content_size=True, write_checksum=True)
+                                compressor.copy_stream(source_fd, dest_fd, size=file_stats.st_size)
+                    case CompressionType.NONE:
+                        shutil.copyfile(sourcepath, fullpath)
+            else:
+                shutil.copyfile(sourcepath, fullpath)
+
         except shutil.SameFileError:
             pass
 
-    def _install_symlink(self, destination: Path, source: Path, link: Path):
+    def _install_symlink(self, destination: Path, source: File, link: Path, compress: CompressionType):
         """Install requested symlink"""
-        sourcepath = Path(destination) / Path(source)
+        source_name = Path(source.name)
         linkpath = Path(destination) / Path(link)  # Don't resolve it, pathlib will follow symlinks
+        if source.compress:
+            source_name = source_name.with_suffix(source_name.suffix + "." + compress.value)
+            linkpath = linkpath.with_suffix(linkpath.suffix + "." + compress.value)
         parentpath = linkpath.parent
         # Create parentpath early since targetpath may require existing path
         parentpath.mkdir(mode=0o755, parents=True, exist_ok=True)
 
+        sourcepath = Path(destination) / source_name
         if not sourcepath.exists():
             logger.error(f"Source file {sourcepath} does not exists")
             return
@@ -266,7 +301,7 @@ class WhenceLoader:
             logger.warning(f"Target link {linkpath} exists, overwriting")
             linkpath.unlink()
 
-        local_file = relative_to(Path(source), Path(link).parent)
+        local_file = relative_to(source_name, Path(link).parent)
         logger.info(f"Making link {linkpath} to {local_file}")
         linkpath.symlink_to(local_file)
 
@@ -332,16 +367,17 @@ class WhenceLoader:
                     (categories is None or any(map(lambda each: each in d.category, categories)))
             ), self.whence_content["entries"]))
 
-    def install(self, source: Path, destination: Path, names=None, vendors=None, categories=None, licenses=None):
+    def install(self, source: Path, destination: Path, names=None, vendors=None, categories=None, licenses=None,
+                compress=CompressionType.NONE):
         """Install files from filtered query list"""
         entries = self.list(names, vendors, categories, licenses)
 
         for entry in entries:
             for file in entry.files:
-                self._install(source, Path(file.name), destination)
+                self._install(source, file, destination, compress)
                 if file.links is not None:
                     for link in file.links:
-                        self._install_symlink(destination, file.name, link)
+                        self._install_symlink(destination, file, link, compress)
 
 
 if __name__ == "__main__":
@@ -389,7 +425,8 @@ if __name__ == "__main__":
             names=None if args.names is None else args.names.split(","),
             vendors=None if args.vendors is None else args.vendors.split(","),
             licenses=None if args.licenses is None else args.licenses.split(","),
-            categories=None if args.categories is None else args.categories.split(",")
+            categories=None if args.categories is None else args.categories.split(","),
+            compress=CompressionType(args.compress)
         )
 
 
@@ -455,6 +492,8 @@ if __name__ == "__main__":
 
     parser_install.add_argument("-d", "--destination", help="Destination directory (default is /lib/firmware)",
                                 default="/lib/firmware")
+    parser_install.add_argument("-C", "--compress", help="Compression algorithm (none, zst, xz, default is none)",
+                                default="none")
 
     args = parser.parse_args()
     logger.setLevel(args.verbose)
