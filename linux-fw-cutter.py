@@ -356,20 +356,21 @@ class WhenceLoader:
         """
         return list(filter(lambda d: d.name == name, self.whence_content["entries"]))
 
-    def list(self, names=None, vendors=None, categories=None, licenses=None):
+    def list(self, names=None, vendors=None, categories=None, files=None, licenses=None):
         """Return list of entries that matches provided filters"""
         return list(
             filter(lambda d: (
                     (names is None or d.name in names) and
                     (vendors is None or d.vendor in vendors) and
                     (licenses is None or d.license.name in licenses) and
+                    (files is None or any(map(lambda each: each in (itm.name for itm in d.files), files))) and
                     (categories is None or any(map(lambda each: each in d.category, categories)))
             ), self.whence_content["entries"]))
 
-    def install(self, source: Path, destination: Path, names=None, vendors=None, categories=None, licenses=None,
-                compress=CompressionType.NONE):
+    def install(self, source: Path, destination: Path, names=None, vendors=None, categories=None, files=None,
+                licenses=None, compress=CompressionType.NONE):
         """Install files from filtered query list"""
-        entries = self.list(names, vendors, categories, licenses)
+        entries = self.list(names=names, vendors=vendors, categories=categories, files=files, licenses=licenses)
 
         for entry in entries:
             for file in entry.files:
@@ -401,6 +402,7 @@ if __name__ == "__main__":
                 names=None if args.names is None else args.names.split(","),
                 vendors=None if args.vendors is None else args.vendors.split(","),
                 licenses=None if args.licenses is None else args.licenses.split(","),
+                files=None if args.files is None else args.files.split(","),
                 categories=None if args.categories is None else args.categories.split(",")
         ):
             try:
@@ -429,6 +431,7 @@ if __name__ == "__main__":
             names=None if args.names is None else args.names.split(","),
             vendors=None if args.vendors is None else args.vendors.split(","),
             licenses=None if args.licenses is None else args.licenses.split(","),
+            files=None if args.files is None else args.files.split(","),
             categories=None if args.categories is None else args.categories.split(","),
             compress=CompressionType(args.compress)
         )
@@ -447,6 +450,9 @@ if __name__ == "__main__":
         elif args.categories:
             categories = sorted(set(itm for itm in entries for itm in itm.category))
             print("\n".join(categories))
+        elif args.files:
+            files = sorted(set(itm.name for itm in entries for itm in itm.files))
+            print("\n".join(files))
         else:
             # Default - list names
             names = sorted(set(itm.name for itm in entries))
@@ -480,6 +486,7 @@ if __name__ == "__main__":
     group_list.add_argument("-v", "--vendors", action="store_true", help="Get all unique vendor names")
     group_list.add_argument("-c", "--categories", action="store_true", help="Get all unique category names")
     group_list.add_argument("-l", "--licenses", action="store_true", help="Get all unique license names")
+    group_list.add_argument("-f", "--files", action="store_true", help="Get all installable files")
     parser_list.add_argument("-w", "--whence", help="Specify custom WHENCE.yaml file (default is WHENCE.yaml)",
                              default="WHENCE.yaml")
 
@@ -488,6 +495,7 @@ if __name__ == "__main__":
         i.add_argument("-v", "--vendors", help="Query filter with vendor names (comma separated)")
         i.add_argument("-c", "--categories", help="Query filter with categories (comma separated)")
         i.add_argument("-l", "--licenses", help="Query filter with licenses (comma separated)")
+        i.add_argument("-f", "--files", help="Query filter with files (comma separated)")
         i.add_argument("-w", "--whence", help="Specify custom WHENCE.yaml file (default is WHENCE.yaml)",
                        default="WHENCE.yaml")
     for i in [parser_check, parser_info, parser_install]:
