@@ -395,25 +395,24 @@ if __name__ == "__main__":
 
     def do_info(args):
         content = WhenceLoader(args.whence)
-        if args.verbose:
+        if not args.terse:
             print(f"format_version: {content.whence_content['metadata'].format_version}\n"
                   f"firmware_version: {content.whence_content['metadata'].firmware_version}\n")
         for entry in content.list(
-                names=None if args.names is None else args.names.split(","),
-                vendors=None if args.vendors is None else args.vendors.split(","),
-                licenses=None if args.licenses is None else args.licenses.split(","),
-                files=None if args.files is None else args.files.split(","),
-                categories=None if args.categories is None else args.categories.split(",")
+                names=args.names,
+                vendors=args.vendors,
+                licenses=args.licenses,
+                files=args.files,
+                categories=args.categories
         ):
-            try:
-                if args.verbose:
-                    entry.size = sum((args.source / Path(itm.name)).stat().st_size for itm in entry.files)
-            except FileNotFoundError as e:
-                logger.warning(f"Error calculation file size: {e}!")
-            if args.verbose:
-                print(entry)
-            else:
+            if args.terse:
                 print(entry.name)
+            else:
+                try:
+                    entry.size = sum((args.source / Path(itm.name)).stat().st_size for itm in entry.files)
+                except FileNotFoundError as e:
+                    logger.debug(f"Error calculation file size: {e}!")
+                print(entry)
         sys.exit(0)
 
     def do_install(args):
@@ -428,11 +427,11 @@ if __name__ == "__main__":
         content.install(
             source,
             destination,
-            names=None if args.names is None else args.names.split(","),
-            vendors=None if args.vendors is None else args.vendors.split(","),
-            licenses=None if args.licenses is None else args.licenses.split(","),
-            files=None if args.files is None else args.files.split(","),
-            categories=None if args.categories is None else args.categories.split(","),
+            names=args.names,
+            vendors=args.vendors,
+            licenses=args.licenses,
+            files=args.files,
+            categories=args.categories,
             compress=CompressionType(args.compress)
         )
 
@@ -491,17 +490,17 @@ if __name__ == "__main__":
                              default="WHENCE.yaml")
 
     for i in [parser_info, parser_install]:
-        i.add_argument("-n", "--names", help="Query filter with entry names (comma separated)")
-        i.add_argument("-v", "--vendors", help="Query filter with vendor names (comma separated)")
-        i.add_argument("-c", "--categories", help="Query filter with categories (comma separated)")
-        i.add_argument("-l", "--licenses", help="Query filter with licenses (comma separated)")
-        i.add_argument("-f", "--files", help="Query filter with files (comma separated)")
+        i.add_argument("-n", "--names", nargs="+", help="Query filter with entry names")
+        i.add_argument("-v", "--vendors", nargs="+", help="Query filter with vendor names")
+        i.add_argument("-c", "--categories", nargs="+", help="Query filter with categories")
+        i.add_argument("-l", "--licenses", nargs="+", help="Query filter with licenses")
+        i.add_argument("-f", "--files", nargs="+", help="Query filter with files")
         i.add_argument("-w", "--whence", help="Specify custom WHENCE.yaml file (default is WHENCE.yaml)",
                        default="WHENCE.yaml")
     for i in [parser_check, parser_info, parser_install]:
         i.add_argument("-s", "--source",
                        help="Source directory of linux-firmware package (default is current directory", default=".")
-    parser_info.add_argument("-V", "--verbose", action="store_true", help="Verbose mode",
+    parser_info.add_argument("-t", "--terse", action="store_true", help="Terse mode",
                              default=False)
 
     parser_install.add_argument("-d", "--destination", help="Destination directory (default is /lib/firmware)",

@@ -54,7 +54,7 @@ Here are some quick examples.
 Let's say we need query info about `rtl8192cu` entry:
 
 ```
-# linux-fw-cutter info -V -n rtl8192cu
+# linux-fw-cutter info -n rtl8192cu
 Entry: rtl8192cu
 Description: Realtek 802.11n WLAN driver for RTL8192CU
 Categories:
