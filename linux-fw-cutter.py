@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 # This file is part of Linux Firmware Cutter project
 # SPDX-License-Identifier: GPL-3.0-or-later
