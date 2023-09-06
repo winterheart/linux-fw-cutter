@@ -5,9 +5,7 @@
 # (c) 2022-2023 Azamat H. Hackimov <azamat.hackimov@gmail.com>
 
 from enum import Enum
-from marshmallow import Schema, fields, post_load, exceptions
 from pathlib import Path
-from zstandard import ZstdCompressor
 
 import argparse
 import logging
@@ -17,8 +15,12 @@ import sys
 import yaml
 import yaml.scanner
 
+from marshmallow import Schema, fields, post_load, exceptions
+from zstandard import ZstdCompressor
+
 
 class CompressionType(Enum):
+    """Enum class for compression methods"""
     NONE = "none"
     ZSTD = "zst"
     XZ = "xz"
@@ -32,14 +34,14 @@ class CustomFormatter(logging.Formatter):
     red = "\x1b[31;20m"
     bold_red = "\x1b[31;1m"
     reset = "\x1b[0m"
-    format = "%(asctime)s - %(levelname)s - %(message)s (%(filename)s:%(lineno)d)"
+    fmt = "%(asctime)s - %(levelname)s - %(message)s (%(filename)s:%(lineno)d)"
 
     FORMATS = {
-        logging.DEBUG: grey + format + reset,
-        logging.INFO: grey + format + reset,
-        logging.WARNING: yellow + format + reset,
-        logging.ERROR: red + format + reset,
-        logging.CRITICAL: bold_red + format + reset
+        logging.DEBUG: grey + fmt + reset,
+        logging.INFO: grey + fmt + reset,
+        logging.WARNING: yellow + fmt + reset,
+        logging.ERROR: red + fmt + reset,
+        logging.CRITICAL: bold_red + fmt + reset
     }
 
     def format(self, record):
@@ -56,7 +58,8 @@ def list_dir(directory, relative_directory):
 
 def relative_to(first: Path, second: Path):
     # This function is loosely equivalent to pathlib.Path.relative_to with walk_up from Python 3.12
-    # There no some guards and fail checks, and we assume that first and second paths at least in same directory
+    # There no some guards and fail checks, and we assume that first and second paths at least in
+    # same directory
     num_common_parts = 0
     num_second_parts = len(second.parts)
     for first_part, second_part in zip(first.parts, second.parts):
@@ -126,6 +129,7 @@ class WhenceSchema(Schema):
 
 
 class File:
+    """File class representation."""
     def __init__(self, name, info=None, source=None, version=None, links=None, compress=True):
         self.name = name
         self.info = info
@@ -146,13 +150,14 @@ class File:
     def __str__(self):
         result = f"  - Name: {self.name}"
         if self.links is not None:
-            result += f"\n    Links:"
+            result += "\n    Links:"
             for itm in self.links:
                 result += f"\n      - {itm}"
         return result
 
 
 class Metadata:
+    """Metadata class representation."""
     def __init__(self, format_version, firmware_version):
         self.format_version = format_version
         self.firmware_version = firmware_version
@@ -167,6 +172,7 @@ class Metadata:
 
 
 class License:
+    """License class representation"""
     def __init__(self, name, copyright=None, info=None):
         self.name = name
         self.copyright = copyright
@@ -187,6 +193,9 @@ class License:
 
 
 class Entry:
+    """
+    Entry class representation.
+    """
     def __init__(self, name, description, category, vendor, license, info, files):
         self.name = name
         self.description = description
@@ -220,6 +229,7 @@ class Entry:
 
 
 class WhenceLoader:
+    """Main class for loading everything."""
     def __init__(self, whence_file="WHENCE.yaml"):
         """Load WHENCE.yaml file and initialize object"""
         self.supported_version = "3"
@@ -233,7 +243,7 @@ class WhenceLoader:
                              f"'{self.whence_content['metadata'].format_version}' actual.")
                 sys.exit(1)
         except FileNotFoundError as e:
-            logger.error(f"WHENCE-file '{args.whence}' not found: {e}!")
+            logger.error(f"WHENCE-file '{whence_file}' not found: {e}!")
             sys.exit(1)
         except yaml.scanner.ScannerError as e:
             logger.error(f"Format of WHENCE-file is incorrect: {e}!")
@@ -270,8 +280,10 @@ class WhenceLoader:
                     case CompressionType.ZSTD:
                         with open(sourcepath, "rb") as source_fd:
                             with open(fullpath, "wb") as dest_fd:
-                                compressor = ZstdCompressor(write_content_size=True, write_checksum=True)
-                                compressor.copy_stream(source_fd, dest_fd, size=sourcepath.stat().st_size)
+                                compressor = ZstdCompressor(write_content_size=True,
+                                                            write_checksum=True)
+                                compressor.copy_stream(source_fd, dest_fd,
+                                                       size=sourcepath.stat().st_size)
                     case CompressionType.NONE:
                         shutil.copyfile(sourcepath, fullpath)
             else:
@@ -280,10 +292,12 @@ class WhenceLoader:
         except shutil.SameFileError:
             pass
 
-    def _install_symlink(self, destination: Path, source: File, link: Path, compress: CompressionType):
+    def _install_symlink(self, destination: Path, source: File, link: Path,
+                         compress: CompressionType):
         """Install requested symlink"""
         source_name = Path(source.name)
-        linkpath = Path(destination) / Path(link)  # Don't resolve it, pathlib will follow symlinks
+        # Don't resolve it, pathlib will follow symlinks
+        linkpath = Path(destination) / Path(link)
         if source.compress:
             source_name = source_name.with_suffix(source_name.suffix + "." + compress.value)
             linkpath = linkpath.with_suffix(linkpath.suffix + "." + compress.value)
@@ -304,7 +318,7 @@ class WhenceLoader:
         logger.info(f"Making link {linkpath} to {local_file}")
         linkpath.symlink_to(local_file)
 
-    def check(self):
+    def check(self, args):
         """Check WHENCE.yaml content, compare file lists with actual files in repo"""
         # Ignorable files
         known_paths = [".asc", "check_whence.py", "configure", "copy-firmware.sh", "Dockerfile",
@@ -318,7 +332,9 @@ class WhenceLoader:
         # N.B.: Don't include directories ("/" at end of path)
         whence_files = set(itm.name for itm in entries for itm in itm.files if itm.name[-1] != "/")
         # Append licenses files
-        whence_files.update(set(itm.license.name for itm in entries if itm.license.name not in known_licenses))
+        whence_files.update(set(
+            itm.license.name for itm in entries if itm.license.name not in known_licenses
+        ))
         # Append source entries from files section (only regular files)
         # If source points to directory, all files recursively
         # from that directory will be added
@@ -363,14 +379,17 @@ class WhenceLoader:
                     (names is None or d.name in names) and
                     (vendors is None or d.vendor in vendors) and
                     (licenses is None or d.license.name in licenses) and
-                    (files is None or any(map(lambda each: each in (itm.name for itm in d.files), files))) and
+                    (files is None or any(
+                        map(lambda each: each in (itm.name for itm in d.files), files))
+                     ) and
                     (categories is None or any(map(lambda each: each in d.category, categories)))
             ), self.whence_content["entries"]))
 
-    def install(self, source: Path, destination: Path, names=None, vendors=None, categories=None, files=None,
-                licenses=None, compress=CompressionType.NONE):
+    def install(self, source: Path, destination: Path, names=None, vendors=None, categories=None,
+                files=None, licenses=None, compress=CompressionType.NONE):
         """Install files from filtered query list"""
-        entries = self.list(names=names, vendors=vendors, categories=categories, files=files, licenses=licenses)
+        entries = self.list(names=names, vendors=vendors, categories=categories, files=files,
+                            licenses=licenses)
 
         for entry in entries:
             for file in entry.files:
@@ -390,10 +409,12 @@ if __name__ == "__main__":
     logger.addHandler(ch)
 
     def do_check(args):
+        """Method for checking WHENCE.yaml."""
         content = WhenceLoader(args.whence)
-        sys.exit(content.check())
+        sys.exit(content.check(args))
 
     def do_info(args):
+        """Method for querying info about entries."""
         content = WhenceLoader(args.whence)
         if not args.terse:
             print(f"format_version: {content.whence_content['metadata'].format_version}\n"
@@ -409,13 +430,16 @@ if __name__ == "__main__":
                 print(entry.name)
             else:
                 try:
-                    entry.size = sum((args.source / Path(itm.name)).stat().st_size for itm in entry.files)
+                    entry.size = sum(
+                        (args.source / Path(itm.name)).stat().st_size for itm in entry.files
+                    )
                 except FileNotFoundError as e:
                     logger.debug(f"Error calculation file size: {e}!")
                 print(entry)
         sys.exit(0)
 
     def do_install(args):
+        """Method for installing files."""
         content = WhenceLoader(args.whence)
         destination = Path(args.destination).resolve()
         destination.mkdir(exist_ok=True)
@@ -435,8 +459,8 @@ if __name__ == "__main__":
             compress=CompressionType(args.compress)
         )
 
-
     def do_list(args):
+        """Method for listing entries."""
         content = WhenceLoader(args.whence)
         entries = content.list()
 
@@ -457,19 +481,21 @@ if __name__ == "__main__":
             names = sorted(set(itm.name for itm in entries))
             print("\n".join(names))
 
-
     # Main
     parser = argparse.ArgumentParser(
         prog="firmware-install.py",
         description="Query info and installs firmware files"
     )
     parser.set_defaults(func=lambda arg: parser.print_help())
-    parser.add_argument("-V", "--verbose", help="Specify verbose level (DEBUG, INFO, WARNING, ERROR or CRITICAL, "
-                                                "default is WARNING)", default="WARNING")
+    parser.add_argument("-V", "--verbose",
+                        help="Specify verbose level (DEBUG, INFO, WARNING, ERROR or CRITICAL, "
+                             "default is WARNING)", default="WARNING")
     subparsers = parser.add_subparsers(title="Commands", description="valid subcommands")
     parser_check = subparsers.add_parser("check", help="Check WHENCE.yaml content and files")
-    parser_info = subparsers.add_parser("info", help="Get info about entries that comply filtered query")
-    parser_install = subparsers.add_parser("install", help="Install firmware files that comply filtered query")
+    parser_info = subparsers.add_parser("info",
+                                        help="Get info about entries that comply filtered query")
+    parser_install = subparsers.add_parser("install",
+                                           help="Install firmware files that comply filtered query")
     parser_list = subparsers.add_parser("list", help="List all unique entries for provided query")
 
     parser_check.set_defaults(func=do_check)
@@ -477,16 +503,23 @@ if __name__ == "__main__":
     parser_install.set_defaults(func=do_install)
     parser_list.set_defaults(func=do_list)
 
-    parser_check.add_argument("-w", "--whence", help="Specify custom WHENCE.yaml file (default is WHENCE.yaml)",
+    parser_check.add_argument("-w", "--whence",
+                              help="Specify custom WHENCE.yaml file (default is WHENCE.yaml)",
                               default="WHENCE.yaml")
 
     group_list = parser_list.add_mutually_exclusive_group()
-    group_list.add_argument("-n", "--names", action="store_true", help="Get all unique entry names")
-    group_list.add_argument("-v", "--vendors", action="store_true", help="Get all unique vendor names")
-    group_list.add_argument("-c", "--categories", action="store_true", help="Get all unique category names")
-    group_list.add_argument("-l", "--licenses", action="store_true", help="Get all unique license names")
-    group_list.add_argument("-f", "--files", action="store_true", help="Get all installable files")
-    parser_list.add_argument("-w", "--whence", help="Specify custom WHENCE.yaml file (default is WHENCE.yaml)",
+    group_list.add_argument("-n", "--names", action="store_true",
+                            help="Get all unique entry names")
+    group_list.add_argument("-v", "--vendors", action="store_true",
+                            help="Get all unique vendor names")
+    group_list.add_argument("-c", "--categories", action="store_true",
+                            help="Get all unique category names")
+    group_list.add_argument("-l", "--licenses", action="store_true",
+                            help="Get all unique license names")
+    group_list.add_argument("-f", "--files", action="store_true",
+                            help="Get all installable files")
+    parser_list.add_argument("-w", "--whence",
+                             help="Specify custom WHENCE.yaml file (default is WHENCE.yaml)",
                              default="WHENCE.yaml")
 
     for i in [parser_info, parser_install]:
@@ -495,21 +528,26 @@ if __name__ == "__main__":
         i.add_argument("-c", "--categories", nargs="+", help="Query filter with categories")
         i.add_argument("-l", "--licenses", nargs="+", help="Query filter with licenses")
         i.add_argument("-f", "--files", nargs="+", help="Query filter with files")
-        i.add_argument("-w", "--whence", help="Specify custom WHENCE.yaml file (default is WHENCE.yaml)",
+        i.add_argument("-w", "--whence",
+                       help="Specify custom WHENCE.yaml file (default is WHENCE.yaml)",
                        default="WHENCE.yaml")
     for i in [parser_check, parser_info, parser_install]:
         i.add_argument("-s", "--source",
-                       help="Source directory of linux-firmware package (default is current directory", default=".")
+                       help="Source directory of linux-firmware package (default is current "
+                            "directory",
+                       default=".")
     parser_info.add_argument("-t", "--terse", action="store_true", help="Terse mode",
                              default=False)
 
-    parser_install.add_argument("-d", "--destination", help="Destination directory (default is /lib/firmware)",
+    parser_install.add_argument("-d", "--destination",
+                                help="Destination directory (default is /lib/firmware)",
                                 default="/lib/firmware")
-    parser_install.add_argument("-C", "--compress", help="Compression algorithm (none, zst, xz, default is none)",
+    parser_install.add_argument("-C", "--compress",
+                                help="Compression algorithm (none, zst, xz, default is none)",
                                 default="none")
 
-    args = parser.parse_args()
-    logger.setLevel(args.verbose)
-    ch.setLevel(args.verbose)
+    arguments = parser.parse_args()
+    logger.setLevel(arguments.verbose)
+    ch.setLevel(arguments.verbose)
 
-    args.func(args)
+    arguments.func(arguments)
