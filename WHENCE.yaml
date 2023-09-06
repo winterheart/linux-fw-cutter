@@ -4092,8 +4092,6 @@ entries:
         version: WLAN.HK.2.6.0.1-00861-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ5018/hw1.0/q6_fw.b09
         version: WLAN.HK.2.6.0.1-00861-QCAHKSWPL_SILICONZ-1
-      - name: ath11k/IPQ5018/hw1.0/m3_fw.b00
-        version: WLAN.HK.2.6.0.1-00861-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ5018/hw1.0/q6_fw.b10
         version: WLAN.HK.2.6.0.1-00861-QCAHKSWPL_SILICONZ-1
       - name: ath11k/IPQ5018/hw1.0/q6_fw.b11
