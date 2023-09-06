@@ -28,7 +28,7 @@ jobs:
       run: |
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=100 --statistics
-    - name: Test with pytest
+    - name: Test WHENCE.yaml
       run: |
         firmware_version=$(./linux-fw-cutter.py info -n 1 | grep firmware_version | cut -d ' ' -f 2)
         pushd ..
@@ -37,3 +37,11 @@ jobs:
         git checkout "${firmware_version}"
         popd
         ./linux-fw-cutter.py check -s ../linux-firmware
+    - name: Compare linux-firmware and linux-fw-cutter compressed install output
+      run: |
+        pushd ../linux-firmware
+        mkdir ../firmware-linux-xz
+        ./copy-firmware.sh --xz ../firmware-linux-xz
+        popd
+        ./linux-fw-cutter.py install -s ../linux-firmware -d ../linux-fw-cutter-xz -C xz
+        diff -qr ../firmware-linux-xz ../linux-fw-cutter-xz
