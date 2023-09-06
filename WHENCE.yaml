@@ -6163,8 +6163,9 @@ entries:
         version: "20221208202138"
 
   - name: mt7921
-    description: MediaTek MT7921 Wireless MACs
+    description: MediaTek MT7921 Bluetooth and Wireless MACs
     category:
+      - drivers/bluetooth
       - drivers/net/wireless
     vendor: MediaTek
     license:
@@ -6176,23 +6177,13 @@ entries:
         version: "20230526130917a"
       - name: mediatek/WIFI_RAM_CODE_MT7961_1.bin
         version: "20230526130958"
-
-  - name: mt7921
-    description: MediaTek MT7921 bluetooth chipset
-    category:
-      - drivers/bluetooth
-    vendor: MediaTek
-    license:
-      name: LICENCE.mediatek
-      info: Redistributable
-    info: No info
-    files:
       - name: mediatek/BT_RAM_CODE_MT7961_1_2_hdr.bin
         version: "20230526131214"
 
   - name: mt7922
-    description: MediaTek MT7922 Wireless MACs
+    description: MediaTek MT7922 Bluetooth and Wireless MACs
     category:
+      - drivers/bluetooth
       - drivers/net/wireless
     vendor: MediaTek
     license:
@@ -6204,17 +6195,6 @@ entries:
         version: "20230627143702a"
       - name: mediatek/WIFI_RAM_CODE_MT7922_1.bin
         version: "20230627143946"
-
-  - name: mt7922
-    description: MediaTek MT7922 bluetooth chipset
-    category:
-      - drivers/bluetooth
-    vendor: MediaTek
-    license:
-      name: LICENCE.mediatek
-      info: Redistributable
-    info: No info
-    files:
       - name: mediatek/BT_RAM_CODE_MT7922_1_1_hdr.bin
         version: "20230627144220"
 
