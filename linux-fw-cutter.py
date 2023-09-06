@@ -307,9 +307,9 @@ class WhenceLoader:
     def check(self):
         """Check WHENCE.yaml content, compare file lists with actual files in repo"""
         # Ignorable files
-        known_paths = [".asc", "check_whence.py", "configure", "copy-firmware.sh",
+        known_paths = [".asc", "check_whence.py", "configure", "copy-firmware.sh", "Dockerfile",
                        "firmware-install.py", "ChangeLog", "Makefile", "NOTICE.txt",
-                       "README", "WHENCE", "WHENCE.yaml"]
+                       "README.md", "WHENCE", "WHENCE.yaml"]
         # Ignorable license names
         known_licenses = ["Redistributable", "Unknown"]
         # Get content (files, sources, licenses)

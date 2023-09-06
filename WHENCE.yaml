@@ -5,7 +5,7 @@
 
 metadata:
   format_version: "3"
-  firmware_version: "20230804"
+  firmware_version: "20230804-59-g20d250e3"
 
 entries:
   - name: BCM-0bb4-0306
@@ -656,15 +656,15 @@ entries:
     files:
       - name: cxgb4/t4fw-1.14.4.0.bin
       - name: cxgb4/t4fw-1.15.37.0.bin
-      - name: cxgb4/t4fw-1.27.3.0.bin
+      - name: cxgb4/t4fw-1.27.4.0.bin
         links:
           - cxgb4/t4fw.bin
       - name: cxgb4/t5fw-1.14.4.0.bin
       - name: cxgb4/t5fw-1.15.37.0.bin
-      - name: cxgb4/t5fw-1.27.3.0.bin
+      - name: cxgb4/t5fw-1.27.4.0.bin
         links:
           - cxgb4/t5fw.bin
-      - name: cxgb4/t6fw-1.27.3.0.bin
+      - name: cxgb4/t6fw-1.27.4.0.bin
         links:
           - cxgb4/t6fw.bin
       - name: cxgb4/aq1202_fw.cld
@@ -3932,11 +3932,11 @@ entries:
         version: WLAN.TF.2.1-00021-QCARMSWP-1
       - name: ath10k/WCN3990/hw1.0/firmware-5.bin
         version: WLAN.TF.2.1-00021-QCARMSWP-1
-      - name: ath10k/WCN3990/hw1.0/wlanmdsp.mbn
+      - name: qcom/sdm845/wlanmdsp.mbn
         version: WLAN.TF.2.1-00021-QCARMSWP-1
         links:
-          - qcom/sdm845/wlanmdsp.mbn
-      - name: ath10k/WCN3990/hw1.0/notice.txt_wlanmdsp
+          - ath10k/WCN3990/hw1.0/wlanmdsp.mbn
+      - name: qcom/sdm845/notice.txt_wlanmdsp
         version: WLAN.HL.2.0-01387-QCAHLSWMTPLZ-1
 
   - name: ath11k
@@ -4330,69 +4330,69 @@ entries:
       - name: intel/ibt-18-1.ddc
         version: BT_ThunderPeak_A0_B0_REL0201
       - name: intel/ibt-20-0-3.sfi
-        version: BT_CyclonePeak_A0_REL53454
+        version: BT_CyclonePeak_A0_REL53497
       - name: intel/ibt-20-0-3.ddc
-        version: BT_CyclonePeak_A0_REL53454
+        version: BT_CyclonePeak_A0_REL53497
       - name: intel/ibt-20-1-3.sfi
-        version: BT_CyclonePeak_A0_REL53454
+        version: BT_CyclonePeak_A0_REL53497
       - name: intel/ibt-20-1-3.ddc
-        version: BT_CyclonePeak_A0_REL53454
+        version: BT_CyclonePeak_A0_REL53497
       - name: intel/ibt-20-1-4.sfi
-        version: BT_CyclonePeak_A0_REL53454
+        version: BT_CyclonePeak_A0_REL53497
       - name: intel/ibt-20-1-4.ddc
-        version: BT_CyclonePeak_A0_REL53454
+        version: BT_CyclonePeak_A0_REL53497
       - name: intel/ibt-19-0-0.sfi
-        version: BT_Quasar_REL53454
+        version: BT_Quasar_REL53497
       - name: intel/ibt-19-0-0.ddc
-        version: BT_Quasar_REL53454
+        version: BT_Quasar_REL53497
       - name: intel/ibt-19-0-1.sfi
-        version: BT_Quasar_REL53454
+        version: BT_Quasar_REL53497
       - name: intel/ibt-19-0-1.ddc
-        version: BT_Quasar_REL53454
+        version: BT_Quasar_REL53497
       - name: intel/ibt-19-0-3.sfi
         version: BT_Quasar_REL53263
       - name: intel/ibt-19-0-3.ddc
         version: BT_Quasar_REL53263
       - name: intel/ibt-19-0-4.sfi
-        version: BT_HarrisonPeak_REL53454
+        version: BT_HarrisonPeak_REL53497
       - name: intel/ibt-19-0-4.ddc
-        version: BT_HarrisonPeak_REL53454
+        version: BT_HarrisonPeak_REL53497
       - name: intel/ibt-19-16-4.sfi
-        version: BT_HarrisonPeak_REL53454
+        version: BT_HarrisonPeak_REL53497
       - name: intel/ibt-19-16-4.ddc
-        version: BT_HarrisonPeak_REL53454
+        version: BT_HarrisonPeak_REL53497
       - name: intel/ibt-19-32-1.sfi
-        version: BT_HarrisonPeak_REL53454
+        version: BT_HarrisonPeak_REL53497
       - name: intel/ibt-19-32-1.ddc
-        version: BT_HarrisonPeak_REL53454
+        version: BT_HarrisonPeak_REL53497
       - name: intel/ibt-19-32-0.sfi
-        version: BT_HarrisonPeak_REL53454
+        version: BT_HarrisonPeak_REL53497
       - name: intel/ibt-19-32-0.ddc
-        version: BT_HarrisonPeak_REL53454
+        version: BT_HarrisonPeak_REL53497
       - name: intel/ibt-19-32-4.sfi
-        version: BT_HarrisonPeak_REL53454
+        version: BT_HarrisonPeak_REL53497
       - name: intel/ibt-19-32-4.ddc
-        version: BT_HarrisonPeak_REL53454
+        version: BT_HarrisonPeak_REL53497
       - name: intel/ibt-19-240-1.sfi
-        version: BT_HarrisonPeak_REL53454
+        version: BT_HarrisonPeak_REL53497
       - name: intel/ibt-19-240-1.ddc
-        version: BT_HarrisonPeak_REL53454
+        version: BT_HarrisonPeak_REL53497
       - name: intel/ibt-19-240-4.sfi
-        version: BT_HarrisonPeak_REL53454
+        version: BT_HarrisonPeak_REL53497
       - name: intel/ibt-19-240-4.ddc
-        version: BT_HarrisonPeak_REL53454
+        version: BT_HarrisonPeak_REL53497
       - name: intel/ibt-0041-0041.sfi
-        version: BT_TyphoonPeak_REL67068
+        version: BT_TyphoonPeak_REL68350
       - name: intel/ibt-0041-0041.ddc
-        version: BT_TyphoonPeak_REL67068
+        version: BT_TyphoonPeak_REL68350
       - name: intel/ibt-0040-0041.sfi
-        version: BT_Solar_GfP2_REL67068
+        version: BT_Solar_GfP2_REL68350
       - name: intel/ibt-0040-0041.ddc
-        version: BT_Solar_GfP2_REL67068
+        version: BT_Solar_GfP2_REL68350
       - name: intel/ibt-1040-0041.sfi
-        version: BT_SolarF_GfP2_REL67068
+        version: BT_SolarF_GfP2_REL68350
       - name: intel/ibt-1040-0041.ddc
-        version: BT_SolarF_GfP2_REL67068
+        version: BT_SolarF_GfP2_REL68350
       - name: intel/ibt-0040-1020.sfi
         version: BT_Solar_JfP1_REL59564
       - name: intel/ibt-0040-1020.ddc
@@ -4410,13 +4410,13 @@ entries:
       - name: intel/ibt-1040-2120.ddc
         version: BT_SolarF_JfP2_REL59564
       - name: intel/ibt-0040-4150.sfi
-        version: BT_Solar_JnP2_REL67068
+        version: BT_Solar_JnP2_REL68350
       - name: intel/ibt-0040-4150.ddc
-        version: BT_Solar_JnP2_REL67068
+        version: BT_Solar_JnP2_REL68350
       - name: intel/ibt-1040-4150.sfi
-        version: BT_SolarF_JnP2_REL67068
+        version: BT_SolarF_JnP2_REL68350
       - name: intel/ibt-1040-4150.ddc
-        version: BT_SolarF_JnP2_REL67068
+        version: BT_SolarF_JnP2_REL68350
 
   - name: btrtl
     description: Realtek Bluetooth USB driver
@@ -4470,6 +4470,7 @@ entries:
       - name: rtl_bt/rtl8852bu_fw.bin
       - name: rtl_bt/rtl8852bu_config.bin
       - name: rtl_bt/rtl8852cu_fw.bin
+      - name: rtl_bt/rtl8852cu_fw_v2.bin
       - name: rtl_bt/rtl8852cu_config.bin
       - name: rtl_bt/rtl8851bu_fw.bin
       - name: rtl_bt/rtl8851bu_config.bin
@@ -4569,7 +4570,9 @@ entries:
       - name: amd/amd_sev_fam17h_model3xh.sbin
         version: 2022-2-25
       - name: amd/amd_sev_fam19h_model0xh.sbin
-        version: 2022-2-25
+        version: 2022-8-23
+      - name: amd/amd_sev_fam19h_model1xh.sbin
+        version: 2023-8-23
 
   - name: microcode_amd
     description: AMD CPU Microcode Update Driver for Linux
@@ -4597,7 +4600,7 @@ entries:
         version: "2023-07-19"
         compress: false
       - name: amd-ucode/microcode_amd_fam19h.bin
-        version: "2023-07-18"
+        version: "2023-08-08"
         compress: false
       - name: amd-ucode/README
 
@@ -5379,11 +5382,13 @@ entries:
       - name: i915/mtl_dmc_ver2_10.bin
         version: DMC API/APB ver 2 release 10 for Meteorlake
       - name: i915/mtl_dmc.bin
-        version: DMC API/APB ver 2 release 13 for Meteorlake
+        version: DMC API/APB ver 2 release 16 for Meteorlake
       - name: i915/mtl_guc_70.bin
         version: GuC API/APB ver 70.8.0 for Meteorlake
       - name: i915/mtl_huc_gsc.bin
         version: HuC API/APB ver 8.5.1 for Meteorlake
+      - name: i915/mtl_gsc_1.bin
+        version: GSC API/APB v1.0, release 102.0.0.1655, SVN 1 for Meteorlake
 
   - name: nouveau
     description: NVIDIA GPU driver
@@ -6493,27 +6498,42 @@ entries:
       - name: qcom/apq8016/WCNSS_qcom_wlan_nv_sbc.bin
       - name: qcom/apq8096/adsp.mbn
       - name: qcom/apq8096/adspr.jsn
+        compress: false
       - name: qcom/apq8096/adspua.jsn
+        compress: false
       - name: qcom/apq8096/mba.mbn
       - name: qcom/apq8096/modem.mbn
       - name: qcom/apq8096/modemr.jsn
+        compress: false
       - name: qcom/sdm845/adsp.mbn
       - name: qcom/sdm845/adspr.jsn
+        compress: false
       - name: qcom/sdm845/adspua.jsn
+        compress: false
       - name: qcom/sdm845/cdsp.mbn
       - name: qcom/sdm845/cdspr.jsn
+        compress: false
       - name: qcom/sdm845/Thundercomm/db845c/slpi.mbn
       - name: qcom/sdm845/Thundercomm/db845c/slpir.jsn
+        compress: false
       - name: qcom/sdm845/Thundercomm/db845c/slpius.jsn
+        compress: false
       - name: qcom/sm8250/adsp.mbn
       - name: qcom/sm8250/adspr.jsn
+        compress: false
       - name: qcom/sm8250/adspua.jsn
+        compress: false
       - name: qcom/sm8250/cdsp.mbn
       - name: qcom/sm8250/cdspr.jsn
+        compress: false
       - name: qcom/sc8280xp/LENOVO/21BX/adspr.jsn
+        compress: false
       - name: qcom/sc8280xp/LENOVO/21BX/adspua.jsn
+        compress: false
       - name: qcom/sc8280xp/LENOVO/21BX/battmgr.jsn
+        compress: false
       - name: qcom/sc8280xp/LENOVO/21BX/cdspr.jsn
+        compress: false
       - name: qcom/sc8280xp/LENOVO/21BX/qcadsp8280.mbn
       - name: qcom/sc8280xp/LENOVO/21BX/qccdsp8280.mbn
       - name: qcom/sc8280xp/LENOVO/21BX/qcslpi8280.mbn
@@ -7116,6 +7136,42 @@ entries:
       - name: cirrus/cs35l41-dsp1-spk-cali-103c8981-r1.bin
       - name: cirrus/cs35l41-dsp1-spk-cali-103c8981-l0.bin
       - name: cirrus/cs35l41-dsp1-spk-cali-103c8981-l1.bin
+      - name: cirrus/cs35l41/v6.83.0/halo_cspl_RAM_revB2_29.85.0.wmfw
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-103c8c46.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-103c8c46.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-103c8c47.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-103c8c47.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-103c8c48.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-103c8c48.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-103c8c49.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-103c8c49.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-103c8c70.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-103c8c70.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-103c8c71.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-103c8c71.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-103c8c72.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-103c8c72.wmfw
+      - name: cirrus/cs35l41-dsp1-spk-prot-103c8c46.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-103c8c70.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-103c8c46.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-cali-103c8c70.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-103c8c47.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-103c8c71.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-103c8c47.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-cali-103c8c71.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-103c8c48.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-103c8c72.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-103c8c48.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-cali-103c8c72.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-103c8c49.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-103c8c49.bin
       - name: cirrus/cs35l41/v6.39.0/halo_cspl_RAM_revB2_29.41.0.wmfw
         links:
           - cirrus/cs35l41-dsp1-spk-prot-17aa3847.wmfw
