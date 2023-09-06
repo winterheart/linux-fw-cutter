@@ -6555,6 +6555,7 @@ entries:
         links:
           - qcom/sdm845/modem.mbn
       - name: qcom/sdm845/modemuw.jsn
+        compress: false
 
   - name: mlxsw_spectrum
     description: Mellanox Spectrum switch
