@@ -168,7 +168,7 @@ wfx/LICENCE.wf200
 Install only open-source firmwares:
 
 ```
-# linux-fw-cutter install -l GPL-2,GPL-3
+# linux-fw-cutter install -l GPL-2 GPL-3
 ```
 
 ## License
