@@ -5,7 +5,7 @@
 
 metadata:
   format_version: "3"
-  firmware_version: "20230804-75-gdfa11466"
+  firmware_version: "20230919"
 
 entries:
   - name: BCM-0bb4-0306
@@ -5384,7 +5384,7 @@ entries:
       - name: i915/mtl_guc_70.bin
         version: GuC API/APB ver 70.8.0 for Meteorlake
       - name: i915/mtl_huc_gsc.bin
-        version: HuC API/APB ver 8.5.1 for Meteorlake
+        version: HuC API/APB ver 8.5.4 for Meteorlake
       - name: i915/mtl_gsc_1.bin
         version: GSC API/APB v1.0, release 102.0.0.1655, SVN 1 for Meteorlake
 
