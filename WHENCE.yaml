@@ -5,7 +5,7 @@
 
 metadata:
   format_version: "3"
-  firmware_version: "20231030"
+  firmware_version: "20231111"
 
 entries:
   - name: BCM-0bb4-0306
@@ -1187,6 +1187,30 @@ entries:
     info: No info
     files:
       - name: v4l-cx231xx-avcore-01.fw
+
+  - name: ixp4xx-npe
+    description: Intel IXP4xx XScale Network Processing Engine (NPE) Firmware
+    category:
+      - drivers/soc
+    vendor: Intel
+    license:
+      name: LICENSE.ixp4xx
+      copyright: Copyright (c) 2007, Intel Corporation. All rights reserved.
+      info: Redistributable
+    info: >
+      This firmware has been used since the early 2000s by OpenWrt
+      and different PDA/SBC projects such as Linux handhelds for
+      supporting the Network Processing Engines inside the Intel
+      XScale IXP4xx SoC.
+    files:
+      - name: ixp4xx/NPE-A
+        version: date = February 26, 2007
+      - name: ixp4xx/NPE-A-HSS
+        version: date = February 26, 2007
+      - name: ixp4xx/NPE-B
+        version: date = February 26, 2007
+      - name: ixp4xx/NPE-C
+        version: date = February 26, 2007
 
   - name: tehuti
     description: Tehuti Networks 10G Ethernet
@@ -4418,17 +4442,17 @@ entries:
       - name: intel/ibt-19-240-4.ddc
         version: BT_HarrisonPeak_REL53497
       - name: intel/ibt-0041-0041.sfi
-        version: BT_TyphoonPeak_REL66410
+        version: BT_TyphoonPeak_REL70976
       - name: intel/ibt-0041-0041.ddc
-        version: BT_TyphoonPeak_REL66410
+        version: BT_TyphoonPeak_REL70976
       - name: intel/ibt-0040-0041.sfi
-        version: BT_Solar_GfP2_REL66410
+        version: BT_Solar_GfP2_REL70976
       - name: intel/ibt-0040-0041.ddc
-        version: BT_Solar_GfP2_REL66410
+        version: BT_Solar_GfP2_REL70976
       - name: intel/ibt-1040-0041.sfi
-        version: BT_SolarF_GfP2_REL66410
+        version: BT_SolarF_GfP2_REL70976
       - name: intel/ibt-1040-0041.ddc
-        version: BT_SolarF_GfP2_REL66410
+        version: BT_SolarF_GfP2_REL70976
       - name: intel/ibt-0040-1020.sfi
         version: BT_Solar_JfP1_REL59564
       - name: intel/ibt-0040-1020.ddc
@@ -4446,29 +4470,29 @@ entries:
       - name: intel/ibt-1040-2120.ddc
         version: BT_SolarF_JfP2_REL59564
       - name: intel/ibt-0040-4150.sfi
-        version: BT_Solar_JnP2_REL66410
+        version: BT_Solar_JnP2_REL70976
       - name: intel/ibt-0040-4150.ddc
-        version: BT_Solar_JnP2_REL66410
+        version: BT_Solar_JnP2_REL70976
       - name: intel/ibt-1040-4150.sfi
-        version: BT_SolarF_JnP2_REL66410
+        version: BT_SolarF_JnP2_REL70976
       - name: intel/ibt-1040-4150.ddc
-        version: BT_SolarF_JnP2_REL66410
+        version: BT_SolarF_JnP2_REL70976
       - name: intel/ibt-0291-0291.sfi
-        version: BT_GalePeak_REL39025
+        version: BT_GalePeak_REL43914
       - name: intel/ibt-0291-0291.ddc
-        version: BT_GalePeak_REL39025
+        version: BT_GalePeak_REL43914
       - name: intel/ibt-0180-0041.sfi
-        version: BT_Magnetar_GfP2_REL82221
+        version: BT_Magnetar_GfP2_REL90033
       - name: intel/ibt-0180-0041.ddc
-        version: BT_Magnetar_GfP2_REL82221
+        version: BT_Magnetar_GfP2_REL90033
       - name: intel/ibt-0180-4150.sfi
-        version: BT_Magnetar_HrP2_REL82221
+        version: BT_Magnetar_JnP2_REL90033
       - name: intel/ibt-0180-4150.ddc
-        version: BT_Magnetar_HrP2_REL82221
+        version: BT_Magnetar_JnP2_REL90033
       - name: intel/ibt-0180-1050.sfi
-        version: BT_Magnetar_HrP1_REL82221
+        version: BT_Magnetar_HrP1_REL90033
       - name: intel/ibt-0180-1050.ddc
-        version: BT_Magnetar_HrP1_REL82221
+        version: BT_Magnetar_HrP1_REL90033
 
   - name: btrtl
     description: Realtek Bluetooth USB driver
@@ -5062,8 +5086,7 @@ entries:
         version: "0.3"
 
   - name: btqca
-    description: >
-      Qualcomm Atheros Bluetooth support for QCA61x4/WCN399x/WCN6750 chips
+    description: Qualcomm Atheros Bluetooth support for QCA61x4 chips
     category:
       - drivers/bluetooth
     vendor: Qualcomm
@@ -5114,11 +5137,53 @@ entries:
       - name: qca/nvm_usb_00130201_gf_0303.bin
       - name: qca/rampatch_usb_00190200.bin
       - name: qca/nvm_usb_00190200.bin
+
+  - name: qca
+    description: Qualcomm Atheros Bluetooth support for WCN3988 chips
+    category:
+      - drivers/bluetooth
+    vendor: Qualcomm
+    license:
+      name: LICENSE.qcom
+      info: Redistributable
+    info: >
+      The WCN3988 Bluetooth/WiFi chip requires its own version of the
+      firmware. Use the firmware files released for the Qualcomm Robotics RB3
+      platform to support this bluetooth chip.
+    files:
+      - name: qca/apbtfw10.tlv
+      - name: qca/apbtfw11.tlv
+      - name: qca/apnv10.bin
+      - name: qca/apnv11.bin
+
+  - name: qca
+    description: Qualcomm Atheros Bluetooth support for WCN399x chips
+    category:
+      - drivers/bluetooth
+    vendor: Qualcomm
+    license:
+      name: LICENSE.QualcommAtheros_ath10k
+      copyright: Copyright (c) 2015-2017, Qualcomm Atheros, Inc. All rights reserved.
+      info: Redistributable
+    info: no info
+    files:
       - name: qca/crbtfw21.tlv
       - name: qca/crnv21.bin
       - name: qca/crbtfw32.tlv
       - name: qca/crnv32.bin
       - name: qca/crnv32u.bin
+
+  - name: qca
+    description: Qualcomm Atheros Bluetooth support for WCN6750 chips
+    category:
+      - drivers/bluetooth
+    vendor: Qualcomm
+    license:
+      name: LICENSE.QualcommAtheros_ath10k
+      copyright: Copyright (c) 2015-2017, Qualcomm Atheros, Inc. All rights reserved.
+      info: Redistributable
+    info: no info
+    files:
       - name: qca/msbtfw11.mbn
       - name: qca/msbtfw11.tlv
       - name: qca/msnv11.bin
@@ -5920,6 +5985,85 @@ entries:
       - name: nvidia/tu10x/typec/ccg_primary.cyacd
       - name: nvidia/tu10x/typec/ccg_secondary.cyacd
       - name: nvidia/tu10x/typec/ccg_boot.cyacd
+      - name: nvidia/tu102/gsp/bootloader-535.113.01.bin
+        links:
+          - nvidia/tu104/gsp/bootloader-535.113.01.bin
+          - nvidia/tu106/gsp/bootloader-535.113.01.bin
+          - nvidia/tu116/gsp/bootloader-535.113.01.bin
+          - nvidia/tu117/gsp/bootloader-535.113.01.bin
+      - name: nvidia/tu102/gsp/booter_load-535.113.01.bin
+        links:
+          - nvidia/tu104/gsp/booter_load-535.113.01.bin
+          - nvidia/tu106/gsp/booter_load-535.113.01.bin
+      - name: nvidia/tu102/gsp/booter_unload-535.113.01.bin
+        links:
+          - nvidia/tu104/gsp/booter_unload-535.113.01.bin
+          - nvidia/tu106/gsp/booter_unload-535.113.01.bin
+      - name: nvidia/tu116/gsp/booter_load-535.113.01.bin
+        links:
+          - nvidia/tu117/gsp/booter_load-535.113.01.bin
+      - name: nvidia/tu116/gsp/booter_unload-535.113.01.bin
+        links:
+          - nvidia/tu117/gsp/booter_unload-535.113.01.bin
+      - name: nvidia/ga100/gsp/bootloader-535.113.01.bin
+      - name: nvidia/ga100/gsp/booter_load-535.113.01.bin
+      - name: nvidia/ga100/gsp/booter_unload-535.113.01.bin
+      - name: nvidia/ad102/gsp/bootloader-535.113.01.bin
+        links:
+          - nvidia/ad103/gsp/bootloader-535.113.01.bin
+          - nvidia/ad104/gsp/bootloader-535.113.01.bin
+          - nvidia/ad106/gsp/bootloader-535.113.01.bin
+          - nvidia/ad107/gsp/bootloader-535.113.01.bin
+      - name: nvidia/ad102/gsp/booter_load-535.113.01.bin
+        links:
+          - nvidia/ad103/gsp/booter_load-535.113.01.bin
+          - nvidia/ad104/gsp/booter_load-535.113.01.bin
+          - nvidia/ad106/gsp/booter_load-535.113.01.bin
+          - nvidia/ad107/gsp/booter_load-535.113.01.bin
+      - name: nvidia/ad102/gsp/booter_unload-535.113.01.bin
+        links:
+          - nvidia/ad103/gsp/booter_unload-535.113.01.bin
+          - nvidia/ad104/gsp/booter_unload-535.113.01.bin
+          - nvidia/ad106/gsp/booter_unload-535.113.01.bin
+          - nvidia/ad107/gsp/booter_unload-535.113.01.bin
+      - name: nvidia/ga102/gsp/bootloader-535.113.01.bin
+        links:
+          - nvidia/ga103/gsp/bootloader-535.113.01.bin
+          - nvidia/ga104/gsp/bootloader-535.113.01.bin
+          - nvidia/ga106/gsp/bootloader-535.113.01.bin
+          - nvidia/ga107/gsp/bootloader-535.113.01.bin
+      - name: nvidia/ga102/gsp/booter_load-535.113.01.bin
+        links:
+          - nvidia/ga103/gsp/booter_load-535.113.01.bin
+          - nvidia/ga104/gsp/booter_load-535.113.01.bin
+          - nvidia/ga106/gsp/booter_load-535.113.01.bin
+          - nvidia/ga107/gsp/booter_load-535.113.01.bin
+      - name: nvidia/ga102/gsp/booter_unload-535.113.01.bin
+        links:
+          - nvidia/ga103/gsp/booter_unload-535.113.01.bin
+          - nvidia/ga104/gsp/booter_unload-535.113.01.bin
+          - nvidia/ga106/gsp/booter_unload-535.113.01.bin
+          - nvidia/ga107/gsp/booter_unload-535.113.01.bin
+      - name: nvidia/tu102/gsp/gsp-535.113.01.bin
+        info: gsp_tu10x.bin from NVIDIA-Linux-x86_64-535.113.01.run
+        links:
+          - nvidia/tu104/gsp/gsp-535.113.01.bin
+          - nvidia/tu106/gsp/gsp-535.113.01.bin
+          - nvidia/tu116/gsp/gsp-535.113.01.bin
+          - nvidia/tu117/gsp/gsp-535.113.01.bin
+          - nvidia/ga100/gsp/gsp-535.113.01.bin
+      - name: nvidia/ga102/gsp/gsp-535.113.01.bin
+        info: gsp_ga10x.bin from NVIDIA-Linux-x86_64-535.113.01.run
+        links:
+          - nvidia/ad102/gsp/gsp-535.113.01.bin
+          - nvidia/ad103/gsp/gsp-535.113.01.bin
+          - nvidia/ad104/gsp/gsp-535.113.01.bin
+          - nvidia/ad106/gsp/gsp-535.113.01.bin
+          - nvidia/ad107/gsp/gsp-535.113.01.bin
+          - nvidia/ga103/gsp/gsp-535.113.01.bin
+          - nvidia/ga104/gsp/gsp-535.113.01.bin
+          - nvidia/ga106/gsp/gsp-535.113.01.bin
+          - nvidia/ga107/gsp/gsp-535.113.01.bin
 
   - name: wilc1000
     description: Atmel 802.11n WLAN driver for WILC1000
