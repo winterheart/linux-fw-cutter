@@ -321,9 +321,26 @@ class WhenceLoader:
     def check(self, args):
         """Check WHENCE.yaml content, compare file lists with actual files in repo"""
         # Ignorable files
-        known_paths = [".asc", "check_whence.py", "configure", "copy-firmware.sh", "Dockerfile",
-                       "firmware-install.py", "ChangeLog", "Makefile", "NOTICE.txt",
-                       "README.md", "WHENCE", "WHENCE.yaml"]
+        known_paths = [
+            ".asc",
+            "build_packages.py",
+            "check_whence.py",
+            "configure",
+            "contrib/process_linux_firmware.py",
+            "contrib/templates/debian.changelog",
+            "contrib/templates/debian.control",
+            "contrib/templates/debian.copyright",
+            "contrib/templates/rpm.spec",
+            "copy-firmware.sh",
+            "Dockerfile",
+            "firmware-install.py",
+            "ChangeLog",
+            "Makefile",
+            "NOTICE.txt",
+            "README.md",
+            "WHENCE",
+            "WHENCE.yaml"
+        ]
         # Ignorable license names
         known_licenses = ["Redistributable", "Unknown"]
         # Get content (files, sources, licenses)
