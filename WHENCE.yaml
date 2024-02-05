@@ -5,7 +5,7 @@
 
 metadata:
   format_version: "3"
-  firmware_version: "20231111"
+  firmware_version: "20231211"
 
 entries:
   - name: BCM-0bb4-0306
@@ -656,15 +656,15 @@ entries:
     files:
       - name: cxgb4/t4fw-1.14.4.0.bin
       - name: cxgb4/t4fw-1.15.37.0.bin
-      - name: cxgb4/t4fw-1.27.4.0.bin
+      - name: cxgb4/t4fw-1.27.5.0.bin
         links:
           - cxgb4/t4fw.bin
       - name: cxgb4/t5fw-1.14.4.0.bin
       - name: cxgb4/t5fw-1.15.37.0.bin
-      - name: cxgb4/t5fw-1.27.4.0.bin
+      - name: cxgb4/t5fw-1.27.5.0.bin
         links:
           - cxgb4/t5fw.bin
-      - name: cxgb4/t6fw-1.27.4.0.bin
+      - name: cxgb4/t6fw-1.27.5.0.bin
         links:
           - cxgb4/t6fw.bin
       - name: cxgb4/aq1202_fw.cld
@@ -1080,27 +1080,35 @@ entries:
       - name: iwlwifi-ty-a0-gf-a0.pnvm
       - name: iwlwifi-gl-c0-fm-c0-83.ucode
         version: 80.d24e06ed.0
+      - name: iwlwifi-gl-c0-fm-c0-86.ucode
+        version: 83.fb5c9aeb.0
       - name: iwlwifi-gl-c0-fm-c0.pnvm
       - name: iwlwifi-ma-b0-gf-a0-83.ucode
         version: 80.d24e06ed.0
+      - name: iwlwifi-ma-b0-gf-a0-86.ucode
+        version: 83.fb5c9aeb.0
       - name: iwlwifi-ma-b0-gf-a0.pnvm
       - name: iwlwifi-ma-b0-gf4-a0-83.ucode
         version: 80.d24e06ed.0
+      - name: iwlwifi-ma-b0-gf4-a0-86.ucode
+        version: 83.fb5c9aeb.0
       - name: iwlwifi-ma-b0-gf4-a0.pnvm
       - name: iwlwifi-ma-b0-hr-b0-83.ucode
         version: 80.d24e06ed.0
+      - name: iwlwifi-ma-b0-hr-b0-86.ucode
+        version: 83.fb5c9aeb.0
       - name: iwlwifi-cc-a0-77.ucode
-        version: 74.bd067429.0
+        version: 74.ad46c98b.0
       - name: iwlwifi-Qu-b0-hr-b0-77.ucode
-        version: 74.bd067429.0
+        version: 74.ad46c98b.0
       - name: iwlwifi-Qu-b0-jf-b0-77.ucode
-        version: 74.bd067429.0
+        version: 74.ad46c98b.0
       - name: iwlwifi-Qu-c0-hr-b0-77.ucode
-        version: 74.bd067429.0
+        version: 74.ad46c98b.0
       - name: iwlwifi-Qu-c0-jf-b0-77.ucode
-        version: 74.bd067429.0
+        version: 74.ad46c98b.0
       - name: iwlwifi-QuZ-a0-hr-b0-77.ucode
-        version: 74.bd067429.0
+        version: 74.ad46c98b.0
       - name: iwlwifi-QuZ-a0-jf-b0-77.ucode
         version: 74.206b0184.0
       - name: iwlwifi-ty-a0-gf-a0-77.ucode
@@ -1115,6 +1123,8 @@ entries:
         version: 80.e8f84e98.0
       - name: iwlwifi-ty-a0-gf-a0-84.ucode
         version: 81.8e5c544c.0
+      - name: iwlwifi-ty-a0-gf-a0-86.ucode
+        version: 83.fb5c9aeb.0
       - name: iwlwifi-so-a0-gf4-a0-77.ucode
         version: 74.f92b5fed.0
       - name: iwlwifi-so-a0-gf4-a0-78.ucode
@@ -1127,6 +1137,8 @@ entries:
         version: 80.e8f84e98.0
       - name: iwlwifi-so-a0-gf4-a0-84.ucode
         version: 81.8e5c544c.0
+      - name: iwlwifi-so-a0-gf4-a0-86.ucode
+        version: 83.fb5c9aeb.0
       - name: iwlwifi-so-a0-gf-a0-77.ucode
         version: 74.f92b5fed.0
       - name: iwlwifi-so-a0-gf-a0-78.ucode
@@ -1139,6 +1151,8 @@ entries:
         version: 80.e8f84e98.0
       - name: iwlwifi-so-a0-gf-a0-84.ucode
         version: 81.8e5c544c.0
+      - name: iwlwifi-so-a0-gf-a0-86.ucode
+        version: 83.fb5c9aeb.0
       - name: iwlwifi-so-a0-hr-b0-77.ucode
         version: 74.f92b5fed.0
       - name: iwlwifi-so-a0-hr-b0-79.ucode
@@ -1149,6 +1163,8 @@ entries:
         version: 80.e8f84e98.0
       - name: iwlwifi-so-a0-hr-b0-84.ucode
         version: 81.8e5c544c.0
+      - name: iwlwifi-so-a0-hr-b0-86.ucode
+        version: 83.fb5c9aeb.0
       - name: iwlwifi-so-a0-jf-b0-77.ucode
         version: 74.f92b5fed.0
 
@@ -2141,6 +2157,22 @@ entries:
       - name: radeon/mullins_vce.bin
       - name: radeon/banks_k_2_smc.bin
       - name: radeon/si58_mc.bin
+
+  - name: en8811h
+    description: Airoha 2.5G Ethernet Phy
+    category:
+      - drivers/net/ethernet
+    vendor: Airoha
+    license:
+      name: LICENSE.airoha
+      info: Redistributable
+    info: >
+      Firmware files for airoha en8811h 2.5G ethernet phy.
+      Refer to https://www.airoha.com/products/p/tKkm7DPXi5m6wY2D for more
+      product information.
+    files:
+      - name: airoha/EthMD32.dm.bin
+      - name: airoha/EthMD32.DSP.bin
 
   - name: amdgpu
     description: AMD Radeon
@@ -4288,6 +4320,7 @@ entries:
       - name: s5p-mfc-v6-v2.fw
       - name: s5p-mfc-v7.fw
       - name: s5p-mfc-v8.fw
+      - name: s5p-mfc-v12.fw
 
   - name: carl9170
     description: Atheros AR9170 802.11 draft-n USB driver
@@ -4442,17 +4475,17 @@ entries:
       - name: intel/ibt-19-240-4.ddc
         version: BT_HarrisonPeak_REL53497
       - name: intel/ibt-0041-0041.sfi
-        version: BT_TyphoonPeak_REL70976
+        version: BT_TyphoonPeak_REL73111
       - name: intel/ibt-0041-0041.ddc
-        version: BT_TyphoonPeak_REL70976
+        version: BT_TyphoonPeak_REL73111
       - name: intel/ibt-0040-0041.sfi
-        version: BT_Solar_GfP2_REL70976
+        version: BT_Solar_GfP2_REL73111
       - name: intel/ibt-0040-0041.ddc
-        version: BT_Solar_GfP2_REL70976
+        version: BT_Solar_GfP2_REL73111
       - name: intel/ibt-1040-0041.sfi
-        version: BT_SolarF_GfP2_REL70976
+        version: BT_SolarF_GfP2_REL73111
       - name: intel/ibt-1040-0041.ddc
-        version: BT_SolarF_GfP2_REL70976
+        version: BT_SolarF_GfP2_REL73111
       - name: intel/ibt-0040-1020.sfi
         version: BT_Solar_JfP1_REL59564
       - name: intel/ibt-0040-1020.ddc
@@ -4469,30 +4502,38 @@ entries:
         version: BT_SolarF_JfP2_REL59564
       - name: intel/ibt-1040-2120.ddc
         version: BT_SolarF_JfP2_REL59564
+      - name: intel/ibt-0040-1050.sfi
+        version: BT_Solar_HrP1_REL73111
+      - name: intel/ibt-0040-1050.ddc
+        version: BT_Solar_HrP1_REL73111
+      - name: intel/ibt-1040-1050.sfi
+        version: BT_SolarF_HrP1_REL73111
+      - name: intel/ibt-1040-1050.ddc
+        version: BT_SolarF_HrP1_REL73111
       - name: intel/ibt-0040-4150.sfi
-        version: BT_Solar_JnP2_REL70976
+        version: BT_Solar_JnP2_REL73111
       - name: intel/ibt-0040-4150.ddc
-        version: BT_Solar_JnP2_REL70976
+        version: BT_Solar_JnP2_REL73111
       - name: intel/ibt-1040-4150.sfi
-        version: BT_SolarF_JnP2_REL70976
+        version: BT_SolarF_JnP2_REL73111
       - name: intel/ibt-1040-4150.ddc
-        version: BT_SolarF_JnP2_REL70976
+        version: BT_SolarF_JnP2_REL73111
       - name: intel/ibt-0291-0291.sfi
-        version: BT_GalePeak_REL43914
+        version: BT_GalePeak_REL45894
       - name: intel/ibt-0291-0291.ddc
-        version: BT_GalePeak_REL43914
+        version: BT_GalePeak_REL45894
       - name: intel/ibt-0180-0041.sfi
-        version: BT_Magnetar_GfP2_REL90033
+        version: BT_Magnetar_GfP2_REL91648
       - name: intel/ibt-0180-0041.ddc
-        version: BT_Magnetar_GfP2_REL90033
+        version: BT_Magnetar_GfP2_REL91648
       - name: intel/ibt-0180-4150.sfi
-        version: BT_Magnetar_JnP2_REL90033
+        version: BT_Magnetar_JnP2_REL91648
       - name: intel/ibt-0180-4150.ddc
-        version: BT_Magnetar_JnP2_REL90033
+        version: BT_Magnetar_JnP2_REL91648
       - name: intel/ibt-0180-1050.sfi
-        version: BT_Magnetar_HrP1_REL90033
+        version: BT_Magnetar_HrP1_REL91648
       - name: intel/ibt-0180-1050.ddc
-        version: BT_Magnetar_HrP1_REL90033
+        version: BT_Magnetar_HrP1_REL91648
 
   - name: btrtl
     description: Realtek Bluetooth USB driver
@@ -4673,7 +4714,7 @@ entries:
         version: "2014-10-28"
         compress: false
       - name: amd-ucode/microcode_amd_fam17h.bin
-        version: "2023-07-19"
+        version: "2023-12-05"
         compress: false
       - name: amd-ucode/microcode_amd_fam19h.bin
         version: "2023-10-19"
@@ -5499,7 +5540,7 @@ entries:
       - name: i915/mtl_dmc_ver2_10.bin
         version: DMC API/APB ver 2 release 10 for Meteorlake
       - name: i915/mtl_dmc.bin
-        version: DMC API/APB ver 2 release 17 for Meteorlake
+        version: DMC API/APB ver 2 release 19 for Meteorlake
       - name: i915/mtl_guc_70.bin
         version: GuC API/APB ver 70.13.1 for Meteorlake
       - name: i915/mtl_huc_gsc.bin
@@ -6375,11 +6416,11 @@ entries:
     info: No info
     files:
       - name: mediatek/WIFI_MT7961_patch_mcu_1_2_hdr.bin
-        version: "20230526130917a"
+        version: "20231109190918a"
       - name: mediatek/WIFI_RAM_CODE_MT7961_1.bin
-        version: "20230526130958"
+        version: "20231109190959"
       - name: mediatek/BT_RAM_CODE_MT7961_1_2_hdr.bin
-        version: "20230526131214"
+        version: "20231109191416"
 
   - name: mt7922
     description: MediaTek MT7922 Bluetooth and Wireless MACs
@@ -6393,11 +6434,25 @@ entries:
     info: No info
     files:
       - name: mediatek/WIFI_MT7922_patch_mcu_1_1_hdr.bin
-        version: "20230627143702a"
+        version: "20231120183400a"
       - name: mediatek/WIFI_RAM_CODE_MT7922_1.bin
-        version: "20230627143946"
+        version: "20231120183441"
       - name: mediatek/BT_RAM_CODE_MT7922_1_1_hdr.bin
-        version: "20230627144220"
+        version: "20231120183620"
+
+  - name: mt7988
+    description: MediaTek MT7988 Internal 2.5G Ethernet Phy
+    category:
+      - drivers/net/ethernet
+    vendor: MediaTek
+    license:
+      name: LICENCE.mediatek
+      info: Redistributable
+    info: >
+      Firmware file for mt7988 internal 2.5G ethernet phy
+    files:
+      - name: mediatek/mt7988/i2p5ge-phy-pmb.bin
+        version: "20230728"
 
   - name: nfp
     description: Netronome Flow Processor
@@ -7002,7 +7057,7 @@ entries:
       info: Redistributable
     info: No info
     files:
-      - name: intel/ice/ddp/ice-1.3.30.0.pkg
+      - name: intel/ice/ddp/ice-1.3.35.0.pkg
         links:
           - intel/ice/ddp/ice.pkg
       - name: intel/ice/ddp-lag/ice_lag-1.3.1.0.pkg
@@ -7018,8 +7073,8 @@ entries:
       info: Redistributable
     info: No info
     files:
-      - name: intel/ice/ddp-comms/ice_comms-1.3.40.0.pkg
-      - name: intel/ice/ddp-wireless_edge/ice_wireless_edge-1.3.10.0.pkg
+      - name: intel/ice/ddp-comms/ice_comms-1.3.45.0.pkg
+      - name: intel/ice/ddp-wireless_edge/ice_wireless_edge-1.3.13.0.pkg
 
   - name: inside-secure
     description: Inside Secure EIP197 crypto driver
@@ -7089,7 +7144,7 @@ entries:
       https://github.com/SiliconLabs/wfx-linux-tools
     files:
       - name: wfx/wfm_wf200_C0.sec
-        version: "3.16.1"
+        version: "3.17"
       - name: wfx/brd4001a.pds
       - name: wfx/brd8022a.pds
       - name: wfx/brd8023a.pds
@@ -7317,6 +7372,8 @@ entries:
           - cirrus/cs35l41-dsp1-spk-cali-10280cc3.wmfw
           - cirrus/cs35l41-dsp1-spk-prot-10280cc4.wmfw
           - cirrus/cs35l41-dsp1-spk-cali-10280cc4.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-10431c33.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-10431c33.wmfw
       - name: cirrus/cs35l41-dsp1-spk-cali-103c8971.bin
         links:
           - cirrus/cs35l41-dsp1-spk-cali-103c898e.bin
@@ -7375,6 +7432,14 @@ entries:
       - name: cirrus/cs35l41-dsp1-spk-cali-103c8981-r1.bin
       - name: cirrus/cs35l41-dsp1-spk-cali-103c8981-l0.bin
       - name: cirrus/cs35l41-dsp1-spk-cali-103c8981-l1.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-103c8cf5-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-103c8cf5-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-103c8cf5-l1.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-103c8cf5-l1.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-103c8cf5-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-103c8cf5-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-103c8cf5-r1.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-103c8cf5-r1.bin        
       - name: cirrus/cs35l41/v6.83.0/halo_cspl_RAM_revB2_29.85.0.wmfw
         links:
           - cirrus/cs35l41-dsp1-spk-prot-103c8c46.wmfw
@@ -7391,6 +7456,54 @@ entries:
           - cirrus/cs35l41-dsp1-spk-cali-103c8c71.wmfw
           - cirrus/cs35l41-dsp1-spk-prot-103c8c72.wmfw
           - cirrus/cs35l41-dsp1-spk-cali-103c8c72.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-10431c03.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-10431c03.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-10431a63.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-10431a63.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-10431c43.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-10431c43.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-103c8ca4.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-103c8ca4.wmfw
+          - cirrus/cs35l41-dsp1-spk-prot-103c8ca7.wmfw
+          - cirrus/cs35l41-dsp1-spk-cali-103c8ca7.wmfw
+      - name: cirrus/cs35l41-dsp1-spk-prot-103c8ca4.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-103c8ca7.wmfw
+      - name: cirrus/cs35l41-dsp1-spk-cali-103c8ca4.bin
+        links:
+          - cirrus/cs35l41-dsp1-spk-prot-103c8ca7.wmfw
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431c03-spkid0-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431c03-spkid0-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431c03-spkid0-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431c03-spkid0-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431c03-spkid1-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431c03-spkid1-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431c03-spkid1-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431c03-spkid1-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431a63-spkid0-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431a63-spkid0-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431a63-spkid0-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431a63-spkid0-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431a63-spkid1-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431a63-spkid1-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431a63-spkid1-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431a63-spkid1-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431c33-spkid0-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431c33-spkid0-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431c33-spkid0-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431c33-spkid0-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431c33-spkid1-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431c33-spkid1-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431c33-spkid1-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431c33-spkid1-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431c43-spkid0-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431c43-spkid0-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431c43-spkid0-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431c43-spkid0-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431c43-spkid1-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431c43-spkid1-l0.bin
+      - name: cirrus/cs35l41-dsp1-spk-prot-10431c43-spkid1-r0.bin
+      - name: cirrus/cs35l41-dsp1-spk-cali-10431c43-spkid1-r0.bin
       - name: cirrus/cs35l41-dsp1-spk-prot-103c8c46.bin
         links:
           - cirrus/cs35l41-dsp1-spk-prot-103c8c70.bin
@@ -7935,3 +8048,19 @@ entries:
     files:
       - name: amlogic/bluetooth/w2_bt_fw_uart.bin
         version: date = 38.01, number = 0xa914
+
+  - name: powervr
+    description: Imagination Technologies PowerVR graphics driver
+    category:
+      - drivers/gpu/drm
+    vendor: Imagination Technologies
+    license:
+      name: LICENSE.powervr
+      info: Redistributable
+    info: >
+      The AXE-1-16M GPU is supported by the new powervr kernel driver, which has
+      recently been merged to the drm-misc tree on its trip to mainline. This adds the
+      initial firmware to support it.
+    files:
+      - name: powervr/rogue_33.15.11.3_v1.fw
+        version: "1.0.OS@6503725"
